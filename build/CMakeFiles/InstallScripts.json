@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/user/code/projects/Transpiler/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
