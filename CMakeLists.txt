@@ -8,4 +8,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(Transpiler main.cpp)
+add_executable(Transpiler main.cpp src/lexer.cpp)
+target_include_directories(Transpiler
+  PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
+)

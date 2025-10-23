@@ -85,12 +85,12 @@ clean: CMakeFiles/Transpiler.dir/clean
 CMakeFiles/Transpiler.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=1,2 "Built target Transpiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=1,2,3 "Built target Transpiler"
 .PHONY : CMakeFiles/Transpiler.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Transpiler.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/code/projects/Transpiler/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/code/projects/Transpiler/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Transpiler.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/code/projects/Transpiler/build/CMakeFiles 0
 .PHONY : CMakeFiles/Transpiler.dir/rule
@@ -102,7 +102,7 @@ Transpiler: CMakeFiles/Transpiler.dir/rule
 # codegen rule for target.
 CMakeFiles/Transpiler.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=1,2 "Finished codegen for target Transpiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target Transpiler"
 .PHONY : CMakeFiles/Transpiler.dir/codegen
 
 # clean rule for target.

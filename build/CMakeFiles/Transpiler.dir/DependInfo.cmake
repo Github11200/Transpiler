@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/user/code/projects/Transpiler/main.cpp" "CMakeFiles/Transpiler.dir/main.cpp.o" "gcc" "CMakeFiles/Transpiler.dir/main.cpp.o.d"
+  "/home/user/code/projects/Transpiler/src/lexer.cpp" "CMakeFiles/Transpiler.dir/src/lexer.cpp.o" "gcc" "CMakeFiles/Transpiler.dir/src/lexer.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

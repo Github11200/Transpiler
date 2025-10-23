@@ -160,6 +160,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/lexer.o: src/lexer.cpp.o
+.PHONY : src/lexer.o
+
+# target to build an object file
+src/lexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/lexer.cpp.o
+.PHONY : src/lexer.cpp.o
+
+src/lexer.i: src/lexer.cpp.i
+.PHONY : src/lexer.i
+
+# target to preprocess a source file
+src/lexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/lexer.cpp.i
+.PHONY : src/lexer.cpp.i
+
+src/lexer.s: src/lexer.cpp.s
+.PHONY : src/lexer.s
+
+# target to generate assembly for a file
+src/lexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/lexer.cpp.s
+.PHONY : src/lexer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -173,6 +197,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/lexer.o"
+	@echo "... src/lexer.i"
+	@echo "... src/lexer.s"
 .PHONY : help
 
 
