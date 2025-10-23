@@ -76,15 +76,15 @@ CMakeFiles/Transpiler.dir/main.cpp.o: CMakeFiles/Transpiler.dir/flags.make
 CMakeFiles/Transpiler.dir/main.cpp.o: /home/user/code/projects/Transpiler/main.cpp
 CMakeFiles/Transpiler.dir/main.cpp.o: CMakeFiles/Transpiler.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Transpiler.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/main.cpp.o -MF CMakeFiles/Transpiler.dir/main.cpp.o.d -o CMakeFiles/Transpiler.dir/main.cpp.o -c /home/user/code/projects/Transpiler/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/main.cpp.o -MF CMakeFiles/Transpiler.dir/main.cpp.o.d -o CMakeFiles/Transpiler.dir/main.cpp.o -c /home/user/code/projects/Transpiler/main.cpp
 
 CMakeFiles/Transpiler.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Transpiler.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/main.cpp > CMakeFiles/Transpiler.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/main.cpp > CMakeFiles/Transpiler.dir/main.cpp.i
 
 CMakeFiles/Transpiler.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Transpiler.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/main.cpp -o CMakeFiles/Transpiler.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/main.cpp -o CMakeFiles/Transpiler.dir/main.cpp.s
 
 # Object files for target Transpiler
 Transpiler_OBJECTS = \

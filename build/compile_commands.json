@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/user/code/projects/Transpiler/build",
-  "command": "/usr/bin/c++   -std=gnu++23 -o CMakeFiles/Transpiler.dir/main.cpp.o -c /home/user/code/projects/Transpiler/main.cpp",
+  "command": "/usr/bin/g++   -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/main.cpp.o -c /home/user/code/projects/Transpiler/main.cpp",
   "file": "/home/user/code/projects/Transpiler/main.cpp",
   "output": "CMakeFiles/Transpiler.dir/main.cpp.o"
 }
