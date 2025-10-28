@@ -184,6 +184,54 @@ src/lexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/lexer.cpp.s
 .PHONY : src/lexer.cpp.s
 
+src/token.o: src/token.cpp.o
+.PHONY : src/token.o
+
+# target to build an object file
+src/token.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/token.cpp.o
+.PHONY : src/token.cpp.o
+
+src/token.i: src/token.cpp.i
+.PHONY : src/token.i
+
+# target to preprocess a source file
+src/token.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/token.cpp.i
+.PHONY : src/token.cpp.i
+
+src/token.s: src/token.cpp.s
+.PHONY : src/token.s
+
+# target to generate assembly for a file
+src/token.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/token.cpp.s
+.PHONY : src/token.cpp.s
+
+src/utils.o: src/utils.cpp.o
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -200,6 +248,12 @@ help:
 	@echo "... src/lexer.o"
 	@echo "... src/lexer.i"
 	@echo "... src/lexer.s"
+	@echo "... src/token.o"
+	@echo "... src/token.i"
+	@echo "... src/token.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

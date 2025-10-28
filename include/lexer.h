@@ -4,26 +4,30 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <optional>
 #include "token.h"
+#include "utils.h"
 
 class Lexer
 {
 private:
-  set<string> keywords;
-  set<string> operators;
-  set<string> punctuator;
+  std::set<std::string> keywords;
+  std::set<std::string> operators;
+  std::set<std::string> punctuator;
   std::string sourceCode;
+  std::vector<std::string> splitSourceCode;
   int index;
 
-  char peekCharacter();
-  char consumeCharacter();
+  std::optional<char> peekCharacter();
+  std::optional<char> consumeCharacter();
 
   std::string peekWord();
   std::string consumeWord();
 
 public:
   Lexer(std::string sourceCode);
-  vector<Token> getTokens();
+
+  std::vector<Token> getTokens();
 };
 
 #endif

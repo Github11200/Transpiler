@@ -3,6 +3,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/Transpiler.dir/main.cpp.o.d"
   "CMakeFiles/Transpiler.dir/src/lexer.cpp.o"
   "CMakeFiles/Transpiler.dir/src/lexer.cpp.o.d"
+  "CMakeFiles/Transpiler.dir/src/token.cpp.o"
+  "CMakeFiles/Transpiler.dir/src/token.cpp.o.d"
+  "CMakeFiles/Transpiler.dir/src/utils.cpp.o"
+  "CMakeFiles/Transpiler.dir/src/utils.cpp.o.d"
   "Transpiler"
   "Transpiler.pdb"
 )

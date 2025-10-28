@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-  int x = 5;
+  Lexer lexer("define x as 5;");
+  vector<Token> tokens = lexer.getTokens();
 
   return 0;
 }

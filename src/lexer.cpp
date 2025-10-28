@@ -2,16 +2,18 @@
 
 using namespace std;
 
-char Lexer::peekCharacter()
+optional<char> Lexer::peekCharacter()
 {
   if (index + 1 < sourceCode.size())
     return sourceCode[index + 1];
-  throw "Index out of size";
+  return nullopt;
 }
 
-char Lexer::consumeCharacter()
+optional<char> Lexer::consumeCharacter()
 {
-  char character = peekCharacter();
+  optional<char> character = peekCharacter();
+  if (!character.has_value())
+    return nullopt;
   ++index;
   return character;
 }
@@ -42,7 +44,6 @@ Lexer::Lexer(string sourceCode)
   keywords.insert("as");
   keywords.insert("repeat");
 
-  operators.insert("=");
   operators.insert("<=");
   operators.insert(">=");
   operators.insert("==");
@@ -54,53 +55,61 @@ Lexer::Lexer(string sourceCode)
   punctuator.insert("{");
   punctuator.insert("\"");
   punctuator.insert(",");
+  punctuator.insert(" ");
 
   this->sourceCode = sourceCode;
+  this->splitSourceCode = splitString(sourceCode, punctuator);
+  this->index = 0;
 }
 
 vector<Token> Lexer::getTokens()
 {
   vector<Token> tokens;
-  for (; index < sourceCode.size(); ++index)
+  for (; index < splitSourceCode.size(); ++index)
   {
-    if (sourceCode[index] == ' ')
-      continue;
-    string nextCharacter(1, peekCharacter());
+    string currentToken = splitSourceCode[index];
     Token token(TokenType::IDENTIFIER, "");
 
-    if (punctuator.contains(nextCharacter))
+    if (punctuator.contains(currentToken))
     {
-      if (nextCharacter == ";")
+      if (currentToken == ";")
       {
         token.tokenType = TokenType::SEMICOLON;
         token.tokenString = ";";
       }
-      else if (nextCharacter == "{")
+      else if (currentToken == "{")
       {
         token.tokenType = TokenType::OPENING_CURLY_BRACKET;
         token.tokenString = "{";
       }
-      else if (nextCharacter == "}")
+      else if (currentToken == "}")
       {
         token.tokenType = TokenType::CLOSING_CURLY_BRACKET;
         token.tokenString = "}";
       }
-      else if (nextCharacter == "\"")
+      else if (currentToken == "\"")
       {
         token.tokenType = TokenType::QUOTE;
         token.tokenString = "\"";
       }
-      else if (nextCharacter == ",")
+      else if (currentToken == ",")
       {
         token.tokenType = TokenType::COMMA;
         token.tokenString = ",";
       }
-      tokens.push_back(token);
-      continue;
     }
 
-    string nextWord = peekWord();
-    
+    if (operators.contains(currentToken))
+      token.tokenType = TokenType::OPERATOR;
+    else if (keywords.contains(currentToken))
+      token.tokenType = TokenType::KEYWORD;
+    else if (isInteger(currentToken))
+      token.tokenType = TokenType::INTEGER_LITERAL;
+    else
+      token.tokenType = TokenType::IDENTIFIER;
+
+    token.tokenString = currentToken;
+    tokens.push_back(token);
   }
 
   return tokens;
