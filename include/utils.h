@@ -9,5 +9,6 @@
 
 std::vector<std::string> splitString(std::string &input, std::set<std::string> &delimeters);
 bool isInteger(std::string &input);
+bool isDouble(std::string &input)
 
 #endif

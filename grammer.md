@@ -11,5 +11,14 @@ repeat \space [array], \space i, \space value \space \{\}
 \newline
 repeat \space [range], \space i \space \{\}
 
+\newline
+\newline
+
 
 $$
+
+<expression\> := <expression\> | <expression\> <expression\> | <expression\> <operator\> <expression\> | <integer_literal\> <operator\> <integer_literal\> | <integer_literal\> <operator\> <expression\>
+
+<operator\> := + | - | \* | / | \*\*
+
+<integer_literal> := All integers

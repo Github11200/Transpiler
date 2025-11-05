@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-  Lexer lexer("define x as 5;");
+  Lexer lexer("define funcy as {}");
   vector<Token> tokens = lexer.getTokens();
 
   return 0;

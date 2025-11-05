@@ -11,7 +11,9 @@ vector<string> splitString(string &input, set<string> &delimeters)
   {
     if (delimeters.contains(string(1, character)))
     {
-      strings.push_back(currentString);
+      if (currentString != "")
+        strings.push_back(currentString);
+      strings.push_back(string(1, character));
       currentString = "";
     }
     else
@@ -26,4 +28,12 @@ vector<string> splitString(string &input, set<string> &delimeters)
 bool isInteger(std::string &input)
 {
   return all_of(input.begin(), input.end(), ::isdigit);
+}
+
+bool isDouble(std::string &input)
+{
+  for (char c : input)
+    if (!isdigit(c) && c != '.')
+      return false;
+  return true;
 }

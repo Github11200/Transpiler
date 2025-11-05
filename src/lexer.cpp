@@ -39,10 +39,11 @@ Lexer::Lexer(string sourceCode)
   keywords.insert("be");
   keywords.insert("point");
   keywords.insert("to");
-  keywords.insert("let");
   keywords.insert("define");
   keywords.insert("as");
   keywords.insert("repeat");
+  keywords.insert("true");
+  keywords.insert("false");
 
   operators.insert("<=");
   operators.insert(">=");
@@ -68,45 +69,72 @@ vector<Token> Lexer::getTokens()
   for (; index < splitSourceCode.size(); ++index)
   {
     string currentToken = splitSourceCode[index];
-    Token token(TokenType::IDENTIFIER, "");
+    if (currentToken == " ")
+      continue;
+
+    Token token(TokenType::IDENTIFIER, " ");
+
+    if (operators.contains(currentToken))
+    {
+      if (currentToken == "+")
+        token.tokenType = TokenType::PLUS;
+      else if (currentToken == "-")
+        token.tokenType = TokenType::MINUS;
+      else if (currentToken == "*")
+        token.tokenType = TokenType::MULTIPLY;
+      else if (currentToken == "/")
+        token.tokenType = TokenType::DIVIDE;
+    }
+
+    if (keywords.contains(currentToken))
+    {
+      if (currentToken == "if")
+        token.tokenType = TokenType::IF;
+      else if (currentToken == "be")
+        token.tokenType = TokenType::BE;
+      else if (currentToken == "as")
+        token.tokenType = TokenType::AS;
+      else if (currentToken == "point")
+        token.tokenType = TokenType::POINT;
+      else if (currentToken == "define")
+        token.tokenType = TokenType::DEFINE;
+      else if (currentToken == "repeat")
+        token.tokenType = TokenType::REPEAT;
+      else if (currentToken == "true")
+        token.tokenType = TokenType::TRUE;
+      else if (currentToken == "false")
+        token.tokenType = TokenType::FALSE;
+    }
 
     if (punctuator.contains(currentToken))
     {
       if (currentToken == ";")
-      {
         token.tokenType = TokenType::SEMICOLON;
-        token.tokenString = ";";
-      }
       else if (currentToken == "{")
-      {
         token.tokenType = TokenType::OPENING_CURLY_BRACKET;
-        token.tokenString = "{";
-      }
       else if (currentToken == "}")
-      {
         token.tokenType = TokenType::CLOSING_CURLY_BRACKET;
-        token.tokenString = "}";
-      }
       else if (currentToken == "\"")
-      {
         token.tokenType = TokenType::QUOTE;
-        token.tokenString = "\"";
-      }
       else if (currentToken == ",")
-      {
         token.tokenType = TokenType::COMMA;
-        token.tokenString = ",";
-      }
     }
 
-    if (operators.contains(currentToken))
-      token.tokenType = TokenType::OPERATOR;
-    else if (keywords.contains(currentToken))
-      token.tokenType = TokenType::KEYWORD;
-    else if (isInteger(currentToken))
+    if (token.tokenType != TokenType::IDENTIFIER)
+    {
+      token.tokenString = currentToken;
+      tokens.push_back(token);
+      continue;
+    }
+
+    if (isInteger(currentToken))
       token.tokenType = TokenType::INTEGER_LITERAL;
-    else
+    else if (isDouble(currentToken))
+      token.tokenType = TokenType::FLOAT;
+    else if (!punctuator.contains(currentToken))
       token.tokenType = TokenType::IDENTIFIER;
+    else
+      throw "What are you doing.";
 
     token.tokenString = currentToken;
     tokens.push_back(token);

@@ -2,28 +2,43 @@
 #define TOKEN_H
 
 #include <string>
+#include <concepts>
 
-enum TokenType
+enum class TokenType
 {
-  IDENTIFIER,
-  KEYWORD,
+  PLUS,
+  MINUS,
+  MULTIPLY,
+  DIVIDE,
+
+  IF,
+  BE,
+  AS,
+  POINT,
+  DEFINE,
+  REPEAT,
+  TRUE,
+  FALSE,
+
   SEMICOLON,
   OPENING_CURLY_BRACKET,
   CLOSING_CURLY_BRACKET,
   QUOTE,
-  OPERATOR,
+  COMMA,
+  SPACE,
+
+  IDENTIFIER,
   INTEGER_LITERAL,
-  COMMA
+  FLOAT
 };
 
 class Token
 {
-private:
 public:
   TokenType tokenType;
   std::string tokenString;
 
-  Token(TokenType tokenType, std::string tokenString);
+  Token(TokenType tokenType, std::string tokenString) : tokenType(tokenType), tokenString(tokenString) {}
 };
 
 #endif
