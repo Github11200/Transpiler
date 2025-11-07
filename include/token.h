@@ -11,6 +11,7 @@ enum class TokenType
   MULTIPLY,
   DIVIDE,
 
+  LET,
   IF,
   BE,
   AS,

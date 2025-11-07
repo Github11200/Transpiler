@@ -3,32 +3,41 @@
 
 #include <string>
 #include <variant>
+#include <memory>
+#include <vector>
 #include "token.h"
 
-class ASTNode
+#define EXPRESSION_TYPES std::shared_ptr<Expression>, int, double
+
+struct ASTNode
 {
-public:
-  virtual void visit();
 };
 
-class Expression : ASTNode
+struct Root : ASTNode
 {
-public:
+  std::vector<std::unique_ptr<ASTNode>> nodes;
+};
+
+struct Expression : ASTNode
+{
   TokenType operatorType;
-  std::variant<Expression, int, double> left;
-  std::variant<Expression, int, double> right;
+  std::variant<EXPRESSION_TYPES> left;
+  std::variant<EXPRESSION_TYPES> right;
+
+  Expression(TokenType operatorType, std::variant<EXPRESSION_TYPES> left, std::variant<EXPRESSION_TYPES> right) : operatorType(operatorType),
+                                                                                                                  left(left),
+                                                                                                                  right(right) {}
 };
 
-class VariableStatement : ASTNode
+struct VariableStatement : ASTNode
 {
-public:
   std::string identifier;
-  Expression &expression;
+  std::unique_ptr<Expression> expression;
 
-  VariableStatement(std::string identifier, Expression &expression)
+  VariableStatement(std::string identifier, Expression expression)
   {
     this->identifier = identifier;
-    this->expression = expression;
+    this->expression = std::make_unique<Expression>(expression);
   }
 };
 

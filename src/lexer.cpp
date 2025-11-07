@@ -35,6 +35,7 @@ string Lexer::consumeWord()
 
 Lexer::Lexer(string sourceCode)
 {
+  keywords.insert("let");
   keywords.insert("if");
   keywords.insert("be");
   keywords.insert("point");
@@ -88,7 +89,9 @@ vector<Token> Lexer::getTokens()
 
     if (keywords.contains(currentToken))
     {
-      if (currentToken == "if")
+      if (currentToken == "let")
+        token.tokenType = TokenType::LET;
+      else if (currentToken == "if")
         token.tokenType = TokenType::IF;
       else if (currentToken == "be")
         token.tokenType = TokenType::BE;
