@@ -37,3 +37,13 @@ bool isDouble(std::string &input)
       return false;
   return true;
 }
+
+bool isOperator(TokenType tokenType)
+{
+  if (tokenType == TokenType::PLUS ||
+      tokenType == TokenType::MINUS ||
+      tokenType == TokenType::MULTIPLY ||
+      tokenType == TokenType::DIVIDE)
+    return true;
+  return false;
+}

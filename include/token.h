@@ -3,6 +3,7 @@
 
 #include <string>
 #include <concepts>
+#include <vector>
 
 enum class TokenType
 {

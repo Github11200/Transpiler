@@ -6,6 +6,7 @@
 #include <set>
 #include "ast/node.h"
 #include "token.h"
+#include "utils.h"
 
 class AST
 {

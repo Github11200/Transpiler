@@ -4,6 +4,15 @@ using namespace std;
 
 Expression AST::evaluateExpression(vector<Token> &statement)
 {
+  Expression root(INT_MAX);
+  for (int i = 0; i < statement.size(); ++i)
+  {
+    if (isOperator(statement[i].tokenType))
+    {
+      root = Expression(statement[i]);
+      root.left = statement[i - 1];
+    }
+  }
 }
 
 VariableStatement AST::evaluateVariableStatement(vector<Token> &statement)
@@ -28,7 +37,7 @@ unique_ptr<ASTNode> AST::evaluateStatement(vector<Token> &statement)
   if (statement[0].tokenType == TokenType::LET && statement[2].tokenType == TokenType::BE)
     return make_unique<VariableStatement>(evaluateVariableStatement(statement));
   /*
-  This is a variable statement: define x as {}
+  This is a function statement: define x as {}
                                 ^^^^^^   ^^
                                 We're looking for these keywords
   */
