@@ -8,7 +8,7 @@
 #include <optional>
 #include "token.h"
 
-#define EXPRESSION_TYPES std::shared_ptr<BinaryExpression>, int, double, std::string, Token
+#define EXPRESSION_TYPES BinaryExpression, IntegerLiteral
 #define VARIABLE_VARIANT std::variant<std::unique_ptr<BinaryExpression>, std::unique_ptr<IntegerLiteral>, int>
 
 struct ASTNode

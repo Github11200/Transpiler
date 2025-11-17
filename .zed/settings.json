@@ -3,10 +3,7 @@
         "clangd": {
             "binary": {
                 "path": "/usr/bin/clangd",
-                "arguments": [
-                    "--compile-commands-dir=build",
-                    "--query-driver=/usr/bin/g++"
-                ]
+                "ignore_system_version": true
             }
         }
     }
