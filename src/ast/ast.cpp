@@ -1,66 +1,72 @@
-#include "ast/ast.h"
+// #include "ast/ast.h"
 
-using namespace std;
+// using namespace std;
 
-variant<unique_ptr<BinaryExpression>, unique_ptr<IntegerLiteral>> AST::evaluateExpression(vector<Token> &statement)
-{
-  // The statement is something like let x be 5;
-  if (statement.size() == 1)
-    return make_unique<IntegerLiteral>(IntegerLiteral(stoi(statement[0].tokenString)));
+// variant<unique_ptr<BinaryExpression>, unique_ptr<IntegerLiteral>> AST::evaluateExpression(vector<Token> &statement)
+// {
+//   // The statement is something like let x be 5;
+//   if (statement.size() == 1)
+//     return make_unique<IntegerLiteral>(IntegerLiteral(stoi(statement[0].tokenString)));
 
-  // We will assume it contains an operator otherwise
-  BinaryExpression *binaryExpression = nullptr;
-  for (int i = 0; i < statement.size(); ++i)
-  {
-    if (!isOperator(statement[i].tokenType))
-      continue;
-    if (i + 1 == statement.size())
-      throw "An operand must be added after the operator.";
-    binaryExpression = new BinaryExpression(statement[i].tokenType, stoi(statement[i - 1].tokenString), stoi(statement[i + 1].tokenString));
-    }
-}
+//   // We will assume it contains an operator otherwise
+//   unique_ptr<BinaryExpression> binaryExpression = nullptr;
+//   for (int i = 0; i < statement.size(); ++i)
+//   {
+//     if (!isOperator(statement[i].tokenType))
+//       continue;
 
-VariableStatement AST::evaluateVariableStatement(vector<Token> &statement)
-{
-  string identifier = statement[1].tokenString;
+//     if (i + 1 == statement.size())
+//       throw "An operand must be added after the operator.";
 
-  vector<Token> expressionTokens;
-  for (int i = 3; i < statement.size() - 1; ++i)
-    expressionTokens.push_back(statement[i]);
+//     BinaryExpression newExpression(statement[i].tokenType, make_unique<IntegerLiteral>(stoi(statement[i - 1].tokenString)), make_unique<IntegerLiteral>(stoi(statement[i + 1].tokenString)));
+//     if (binaryExpression != nullptr)
+//       binaryExpression->right = make_unique<BinaryExpression>(newExpression);
+//     else
+//       binaryExpression = make_unique<BinaryExpression>(newExpression);
+//   }
+// }
 
-  variant<unique_ptr<BinaryExpression>, unique_ptr<IntegerLiteral>> expression = evaluateExpression(expressionTokens);
-  return VariableStatement(identifier, expression);
-}
+// VariableStatement AST::evaluateVariableStatement(vector<Token> &statement)
+// {
+//   string identifier = statement[1].tokenString;
 
-unique_ptr<ASTNode> AST::evaluateStatement(vector<Token> &statement)
-{
-  /*
-  This is a variable statement: let x be 5;
-                                ^^^   ^^
-                                We're looking for these keywords
-  */
-  if (statement[0].tokenType == TokenType::LET && statement[2].tokenType == TokenType::BE)
-    return make_unique<VariableStatement>(evaluateVariableStatement(statement));
-  /*
-  This is a function statement: define x as {}
-                                ^^^^^^   ^^
-                                We're looking for these keywords
-  */
-  else if (statement[0].tokenType == TokenType::DEFINE && statement[2].tokenType == TokenType::AS)
-  {
-  }
-}
+//   vector<Token> expressionTokens;
+//   for (int i = 3; i < statement.size() - 1; ++i)
+//     expressionTokens.push_back(statement[i]);
 
-Root AST::constructAST()
-{
-  Root rootNode;
+//   variant<unique_ptr<BinaryExpression>, unique_ptr<IntegerLiteral>> expression = evaluateExpression(expressionTokens);
+//   return VariableStatement(identifier, make_unique<BinaryExpression>(expression));
+// }
 
-  vector<Token> currentStatement;
-  for (int i = 0; i < tokens.size(); ++i)
-  {
+// unique_ptr<ASTNode> AST::evaluateStatement(vector<Token> &statement)
+// {
+//   /*
+//   This is a variable statement: let x be 5;
+//                                 ^^^   ^^
+//                                 We're looking for these keywords
+//   */
+//   if (statement[0].tokenType == TokenType::LET && statement[2].tokenType == TokenType::BE)
+//     return make_unique<VariableStatement>(evaluateVariableStatement(statement));
+//   /*
+//   This is a function statement: define x as {}
+//                                 ^^^^^^   ^^
+//                                 We're looking for these keywords
+//   */
+//   else if (statement[0].tokenType == TokenType::DEFINE && statement[2].tokenType == TokenType::AS)
+//   {
+//   }
+// }
 
-    currentStatement.push_back(tokens[i]);
-  }
+// Root AST::constructAST()
+// {
+//   Root rootNode;
 
-  return rootNode;
-}
+//   vector<Token> currentStatement;
+//   for (int i = 0; i < tokens.size(); ++i)
+//   {
+
+//     currentStatement.push_back(tokens[i]);
+//   }
+
+//   return rootNode;
+// }

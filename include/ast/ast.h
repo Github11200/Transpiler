@@ -4,6 +4,7 @@
 #include <concepts>
 #include <stack>
 #include <set>
+#include <memory>
 #include "ast/node.h"
 #include "token.h"
 #include "utils.h"
@@ -14,8 +15,8 @@ private:
   std::vector<Token> tokens;
   std::vector<std::set<std::string>> scopes; // Stores the identifiers
 
-  variant<unique_ptr<BinaryExpression>, unique_ptr<IntegerLiteral>> evaluateExpression(std::vector<Token> &statement);
-  VariableStatement evaluateVariableStatement(std::vector<Token> &statement);
+  std::variant<std::unique_ptr<BinaryExpression>, std::unique_ptr<IntegerLiteral>> evaluateExpression(std::vector<Token> &statement);
+  // VariableStatement evaluateVariableStatement(std::vector<Token> &statement);
   std::unique_ptr<ASTNode> evaluateStatement(std::vector<Token> &statement);
 
 public:
