@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Transpiler.dir/main.cpp.o"
   "CMakeFiles/Transpiler.dir/main.cpp.o.d"
+  "CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o"
+  "CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o.d"
   "CMakeFiles/Transpiler.dir/src/lexer.cpp.o"
   "CMakeFiles/Transpiler.dir/src/lexer.cpp.o.d"
   "CMakeFiles/Transpiler.dir/src/token.cpp.o"

@@ -160,6 +160,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/ast/ast.o: src/ast/ast.cpp.o
+.PHONY : src/ast/ast.o
+
+# target to build an object file
+src/ast/ast.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o
+.PHONY : src/ast/ast.cpp.o
+
+src/ast/ast.i: src/ast/ast.cpp.i
+.PHONY : src/ast/ast.i
+
+# target to preprocess a source file
+src/ast/ast.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/ast/ast.cpp.i
+.PHONY : src/ast/ast.cpp.i
+
+src/ast/ast.s: src/ast/ast.cpp.s
+.PHONY : src/ast/ast.s
+
+# target to generate assembly for a file
+src/ast/ast.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/ast/ast.cpp.s
+.PHONY : src/ast/ast.cpp.s
+
 src/lexer.o: src/lexer.cpp.o
 .PHONY : src/lexer.o
 
@@ -245,6 +269,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/ast/ast.o"
+	@echo "... src/ast/ast.i"
+	@echo "... src/ast/ast.s"
 	@echo "... src/lexer.o"
 	@echo "... src/lexer.i"
 	@echo "... src/lexer.s"

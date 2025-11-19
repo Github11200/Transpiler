@@ -15,9 +15,9 @@ private:
   std::vector<Token> tokens;
   std::vector<std::set<std::string>> scopes; // Stores the identifiers
 
-  std::variant<std::unique_ptr<BinaryExpression>, std::unique_ptr<IntegerLiteral>> evaluateExpression(std::vector<Token> &statement);
-  // VariableStatement evaluateVariableStatement(std::vector<Token> &statement);
-  std::unique_ptr<ASTNode> evaluateStatement(std::vector<Token> &statement);
+  std::variant<BinaryExpression, IntegerLiteral> evaluateExpression(std::vector<Token> &statement);
+  VariableStatement evaluateVariableStatement(std::vector<Token> &statement);
+  ASTNode evaluateStatement(std::vector<Token> &statement);
 
 public:
   AST(std::vector<Token> tokens) : tokens(tokens) {}

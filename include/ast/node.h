@@ -6,48 +6,52 @@
 #include <memory>
 #include <vector>
 #include <optional>
+#include <iostream>
 #include "token.h"
 
 struct ASTNode
 {
+  virtual void readValue() = 0;
 };
 
 struct Root : ASTNode
 {
-  std::vector<std::unique_ptr<ASTNode>> nodes;
+  std::vector<ASTNode> nodes;
 };
 
 struct IntegerLiteral : ASTNode
 {
   int value;
   IntegerLiteral(int value) : value(value) {}
-  IntegerLiteral() = default;
+
+  void readValue() override { std::cout << value << std::endl; }
 };
 
 struct BinaryExpression : ASTNode
 {
   std::optional<TokenType> operatorType;
-  std::variant<BinaryExpression *, IntegerLiteral> left;
-  std::variant<BinaryExpression *, IntegerLiteral> right;
+  std::variant<BinaryExpression *, IntegerLiteral *> left;
+  std::variant<BinaryExpression *, IntegerLiteral *> right;
 
-  BinaryExpression(TokenType operatorType, IntegerLiteral left, IntegerLiteral right) : operatorType(operatorType),
-                                                                                        left(left),
-                                                                                        right(right) {}
+  BinaryExpression(TokenType operatorType, std::variant<BinaryExpression *, IntegerLiteral *> left,
+                   std::variant<BinaryExpression *,
+                                IntegerLiteral *>
+                       right) : operatorType(operatorType),
+                                left(left),
+                                right(right) {}
 
-  BinaryExpression(TokenType operatorType, BinaryExpression *left, BinaryExpression *right) : operatorType(operatorType),
-                                                                                              left(left),
-                                                                                              right(right) {}
-
-  BinaryExpression() = default;
+  void readValue() override { std::cout << "hi" << std::endl; }
 };
 
 struct VariableStatement : ASTNode
 {
   std::string identifier;
-  std::variant<BinaryExpression, IntegerLiteral> value;
+  std::variant<BinaryExpression *, IntegerLiteral *> value;
 
-  VariableStatement(std::string identifier, std::variant<BinaryExpression, IntegerLiteral> value) : identifier(identifier),
-                                                                                                    value(value) {}
+  VariableStatement(std::string identifier, std::variant<BinaryExpression *, IntegerLiteral *> value) : identifier(identifier),
+                                                                                                        value(value) {}
+
+  void readValue() override { std::cout << "hi" << std::endl; }
 };
 
 #endif
