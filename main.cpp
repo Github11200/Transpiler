@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "lexer.h"
 #include "ast/ast.h"
 
@@ -10,6 +11,9 @@ int main()
   vector<Token> tokens = lexer.getTokens();
   AST ast(tokens);
 
-  ast.constructAST();
+  shared_ptr<Root> node = ast.constructAST();
+  Root *pointer = node.get();
+  ASTNode *inty = pointer->nodes[0].get();
+
   return 0;
 }

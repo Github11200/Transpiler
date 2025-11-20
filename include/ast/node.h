@@ -16,7 +16,9 @@ struct ASTNode
 
 struct Root : ASTNode
 {
-  std::vector<ASTNode> nodes;
+  std::vector<std::shared_ptr<ASTNode>> nodes;
+
+  void readValue() override { std::cout << "hi" << std::endl; }
 };
 
 struct IntegerLiteral : ASTNode
@@ -46,12 +48,19 @@ struct BinaryExpression : ASTNode
 struct VariableStatement : ASTNode
 {
   std::string identifier;
-  std::variant<BinaryExpression *, IntegerLiteral *> value;
+  std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>> value;
 
-  VariableStatement(std::string identifier, std::variant<BinaryExpression *, IntegerLiteral *> value) : identifier(identifier),
-                                                                                                        value(value) {}
+  VariableStatement(std::string identifier, std::variant<BinaryExpression, IntegerLiteral> value)
+  {
+    if (std::holds_alternative<BinaryExpression>(value))
+      this->value = std::make_shared<BinaryExpression>(value);
+  }
 
-  void readValue() override { std::cout << "hi" << std::endl; }
+  void readValue() override
+  {
+    if (std::holds_alternative<IntegerLiteral *>(value))
+      std::get<IntegerLiteral *>(value)->readValue();
+  }
 };
 
 #endif

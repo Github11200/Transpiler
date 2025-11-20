@@ -42,11 +42,14 @@ VariableStatement AST::evaluateVariableStatement(vector<Token> &statement)
 
   variant<BinaryExpression, IntegerLiteral> expression = evaluateExpression(expressionTokens);
   if (holds_alternative<IntegerLiteral>(expression))
-    return VariableStatement(identifier, &get<IntegerLiteral>(expression));
+  {
+    IntegerLiteral integer = get<IntegerLiteral>(expression);
+    return VariableStatement(identifier, integer);
+  }
   // return VariableStatement(identifier, expression);
 }
 
-ASTNode AST::evaluateStatement(vector<Token> &statement)
+shared_ptr<ASTNode> AST::evaluateStatement(vector<Token> &statement)
 {
   /*
   This is a variable statement: let x be 5;
@@ -54,7 +57,11 @@ ASTNode AST::evaluateStatement(vector<Token> &statement)
                                 We're looking for these keywords
   */
   if (statement[0].tokenType == TokenType::LET && statement[2].tokenType == TokenType::BE)
-    return evaluateVariableStatement(statement);
+  {
+    // dang->readValue();
+    return make_shared<VariableStatement>(evaluateVariableStatement(statement));
+  }
+
   /*
   This is a function statement: define x as {}
                                 ^^^^^^   ^^
@@ -65,7 +72,7 @@ ASTNode AST::evaluateStatement(vector<Token> &statement)
   }
 }
 
-Root AST::constructAST()
+shared_ptr<Root> AST::constructAST()
 {
   Root rootNode;
 
@@ -74,8 +81,9 @@ Root AST::constructAST()
   {
     currentStatement.push_back(tokens[i]);
   }
-  ASTNode node = evaluateStatement(currentStatement);
+  shared_ptr<ASTNode> node = evaluateStatement(currentStatement);
+  node.get()->readValue();
   rootNode.nodes.push_back(evaluateStatement(currentStatement));
 
-  return rootNode;
+  return make_shared<Root>(rootNode);
 }

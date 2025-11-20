@@ -17,11 +17,11 @@ private:
 
   std::variant<BinaryExpression, IntegerLiteral> evaluateExpression(std::vector<Token> &statement);
   VariableStatement evaluateVariableStatement(std::vector<Token> &statement);
-  ASTNode evaluateStatement(std::vector<Token> &statement);
+  std::shared_ptr<ASTNode> evaluateStatement(std::vector<Token> &statement);
 
 public:
   AST(std::vector<Token> tokens) : tokens(tokens) {}
-  Root constructAST();
+  std::shared_ptr<Root> constructAST();
 };
 
 #endif
