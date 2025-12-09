@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-  Lexer lexer("let x be 5;");
+  Lexer lexer("let x be 1000000000;");
   vector<Token> tokens = lexer.getTokens();
   AST ast(tokens);
 

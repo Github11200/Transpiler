@@ -18,13 +18,13 @@ variant<BinaryExpression, IntegerLiteral> AST::evaluateExpression(vector<Token> 
     if (i + 1 == statement.size())
       throw "An operand must be added after the operator.";
 
-    IntegerLiteral *leftInteger = new IntegerLiteral(stoi(statement[i - 1].tokenString));
-    IntegerLiteral *rightInteger = new IntegerLiteral(stoi(statement[i + 1].tokenString));
+    IntegerLiteral leftInteger(stoi(statement[i - 1].tokenString));
+    IntegerLiteral rightInteger(stoi(statement[i + 1].tokenString));
     BinaryExpression newExpression(statement[i].tokenType, leftInteger, rightInteger);
 
     // If there's already an expression then this should go to it's right
     if (binaryExpression != nullptr)
-      binaryExpression->right = &newExpression;
+      binaryExpression->right = std::make_shared<BinaryExpression>(newExpression);
     else
       binaryExpression = &newExpression;
   }

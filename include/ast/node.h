@@ -32,15 +32,21 @@ struct IntegerLiteral : ASTNode
 struct BinaryExpression : ASTNode
 {
   std::optional<TokenType> operatorType;
-  std::variant<BinaryExpression *, IntegerLiteral *> left;
-  std::variant<BinaryExpression *, IntegerLiteral *> right;
+  std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>> left;
+  std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>> right;
 
-  BinaryExpression(TokenType operatorType, std::variant<BinaryExpression *, IntegerLiteral *> left,
-                   std::variant<BinaryExpression *,
-                                IntegerLiteral *>
-                       right) : operatorType(operatorType),
-                                left(left),
-                                right(right) {}
+  BinaryExpression(TokenType operatorType, std::variant<BinaryExpression, IntegerLiteral> left,
+                   std::variant<BinaryExpression,
+                                IntegerLiteral>
+                       right)
+  {
+    this->operatorType = operatorType;
+    std::visit([&](const auto &var)
+               {  if constexpr (std::is_same_v<std::decay_t<decltype(var)>, BinaryExpression>)
+                    this->left = std::make_shared<BinaryExpression>(var);
+                  if constexpr (std::is_same_v<std::decay_t<decltype(var)>, IntegerLiteral>)
+                    this->left = std::make_shared<IntegerLiteral>(var); }, left);
+  }
 
   void readValue() override { std::cout << "hi" << std::endl; }
 };
@@ -52,14 +58,17 @@ struct VariableStatement : ASTNode
 
   VariableStatement(std::string identifier, std::variant<BinaryExpression, IntegerLiteral> value)
   {
-    if (std::holds_alternative<BinaryExpression>(value))
-      this->value = std::make_shared<BinaryExpression>(value);
+    std::visit([&](const auto &var)
+               { if constexpr (std::is_same_v<std::decay_t<decltype(var)>, BinaryExpression>)
+                    this->value = std::make_shared<BinaryExpression>(var);
+                  if constexpr (std::is_same_v<std::decay_t<decltype(var)>, IntegerLiteral>)
+                    this->value = std::make_shared<IntegerLiteral>(var); }, value);
   }
 
   void readValue() override
   {
-    if (std::holds_alternative<IntegerLiteral *>(value))
-      std::get<IntegerLiteral *>(value)->readValue();
+    if (std::holds_alternative<std::shared_ptr<IntegerLiteral>>(value))
+      std::get<std::shared_ptr<IntegerLiteral>>(value)->readValue();
   }
 };
 
