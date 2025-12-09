@@ -46,7 +46,6 @@ VariableStatement AST::evaluateVariableStatement(vector<Token> &statement)
     IntegerLiteral integer = get<IntegerLiteral>(expression);
     return VariableStatement(identifier, integer);
   }
-  // return VariableStatement(identifier, expression);
 }
 
 shared_ptr<ASTNode> AST::evaluateStatement(vector<Token> &statement)
@@ -57,10 +56,7 @@ shared_ptr<ASTNode> AST::evaluateStatement(vector<Token> &statement)
                                 We're looking for these keywords
   */
   if (statement[0].tokenType == TokenType::LET && statement[2].tokenType == TokenType::BE)
-  {
-    // dang->readValue();
     return make_shared<VariableStatement>(evaluateVariableStatement(statement));
-  }
 
   /*
   This is a function statement: define x as {}
@@ -80,10 +76,12 @@ shared_ptr<Root> AST::constructAST()
   for (int i = 0; i < tokens.size(); ++i)
   {
     currentStatement.push_back(tokens[i]);
+    if (tokens[i].tokenType == TokenType::SEMICOLON)
+    {
+      rootNode.nodes.push_back(evaluateStatement(currentStatement));
+      currentStatement.clear();
+    }
   }
-  shared_ptr<ASTNode> node = evaluateStatement(currentStatement);
-  node.get()->readValue();
-  rootNode.nodes.push_back(evaluateStatement(currentStatement));
 
   return make_shared<Root>(rootNode);
 }
