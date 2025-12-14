@@ -21,6 +21,7 @@ enum class TokenType
   REPEAT,
   TRUE,
   FALSE,
+  WITH,
 
   SEMICOLON,
   OPENING_CURLY_BRACKET,

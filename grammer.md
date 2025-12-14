@@ -7,6 +7,8 @@ let \space [name] \space point \space to \space [name];
 \newline
 define \space [name] \space as \space \{\}
 \newline
+define \space [name] \space with \space [parameter 1], \space [parameeter 2] \space as \space \{\}
+\newline
 repeat \space [array], \space i, \space value \space \{\}
 \newline
 repeat \space [range], \space i \space \{\}

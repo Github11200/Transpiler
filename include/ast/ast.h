@@ -12,16 +12,15 @@
 class AST
 {
 private:
-  std::vector<Token> tokens;
   std::vector<std::set<std::string>> scopes; // Stores the identifiers
 
   std::variant<BinaryExpression, IntegerLiteral> evaluateExpression(std::vector<Token> &statement);
-  VariableStatement evaluateVariableStatement(std::vector<Token> &statement);
-  std::shared_ptr<ASTNode> evaluateStatement(std::vector<Token> &statement);
+  std::shared_ptr<VariableStatement> evaluateVariableStatement(std::vector<Token> &statement);
+  std::shared_ptr<FunctionStatement> evaluateFunctionStatement(std::vector<Token> &tokens);
 
 public:
-  AST(std::vector<Token> tokens) : tokens(tokens) {}
-  std::shared_ptr<Root> constructAST();
+  AST() {}
+  std::shared_ptr<Root> constructAST(std::vector<Token> tokens);
 };
 
 #endif

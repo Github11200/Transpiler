@@ -1,0 +1,7 @@
+let x be 5;
+let y be 1010;
+
+define doSomething as {
+  let z be 23;
+  
+}

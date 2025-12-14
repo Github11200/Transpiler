@@ -58,6 +58,7 @@ struct VariableStatement : ASTNode
 
   VariableStatement(std::string identifier, std::variant<BinaryExpression, IntegerLiteral> value)
   {
+    this->identifier = identifier;
     std::visit([&](const auto &var)
                { if constexpr (std::is_same_v<std::decay_t<decltype(var)>, BinaryExpression>)
                     this->value = std::make_shared<BinaryExpression>(var);
@@ -67,8 +68,30 @@ struct VariableStatement : ASTNode
 
   void readValue() override
   {
+    std::cout << this->identifier << ": ";
     if (std::holds_alternative<std::shared_ptr<IntegerLiteral>>(value))
       std::get<std::shared_ptr<IntegerLiteral>>(value)->readValue();
+  }
+};
+
+struct FunctionStatement : ASTNode
+{
+  std::string identifier;
+  std::vector<std::string> parameters;
+  std::vector<std::shared_ptr<ASTNode>> body;
+
+  FunctionStatement(std::string identifier, std::vector<std::shared_ptr<ASTNode>> body, std::vector<std::string> parameters)
+  {
+    this->identifier = identifier;
+    if (parameters.size() > 0)
+      this->parameters = parameters;
+    this->body = body;
+  }
+
+  void readValue() override
+  {
+    for (auto node : body)
+      node.get()->readValue();
   }
 };
 

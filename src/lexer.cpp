@@ -45,6 +45,7 @@ Lexer::Lexer(string sourceCode)
   keywords.insert("repeat");
   keywords.insert("true");
   keywords.insert("false");
+  keywords.insert("with");
 
   operators.insert("<=");
   operators.insert(">=");
@@ -107,6 +108,8 @@ vector<Token> Lexer::getTokens()
         token.tokenType = TokenType::TRUE;
       else if (currentToken == "false")
         token.tokenType = TokenType::FALSE;
+      else if (currentToken == "with")
+        token.tokenType = TokenType::WITH;
     }
 
     if (punctuator.contains(currentToken))

@@ -29,6 +29,7 @@ CMakeFiles/Transpiler.dir/main.cpp.o: /home/user/code/projects/Transpiler/main.c
   /usr/include/c++/11/bits/basic_string.tcc \
   /usr/include/c++/11/bits/char_traits.h \
   /usr/include/c++/11/bits/charconv.h \
+  /usr/include/c++/11/bits/codecvt.h \
   /usr/include/c++/11/bits/concept_check.h \
   /usr/include/c++/11/bits/cpp_type_traits.h \
   /usr/include/c++/11/bits/cxxabi_forced.h \
@@ -39,6 +40,7 @@ CMakeFiles/Transpiler.dir/main.cpp.o: /home/user/code/projects/Transpiler/main.c
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_defines.h \
   /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/functional_hash.h \
   /usr/include/c++/11/bits/hash_bytes.h \
@@ -75,6 +77,7 @@ CMakeFiles/Transpiler.dir/main.cpp.o: /home/user/code/projects/Transpiler/main.c
   /usr/include/c++/11/bits/shared_ptr.h \
   /usr/include/c++/11/bits/shared_ptr_atomic.h \
   /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/bits/std_function.h \
   /usr/include/c++/11/bits/std_mutex.h \
@@ -132,6 +135,7 @@ CMakeFiles/Transpiler.dir/main.cpp.o: /home/user/code/projects/Transpiler/main.c
   /usr/include/c++/11/ext/numeric_traits.h \
   /usr/include/c++/11/ext/string_conversions.h \
   /usr/include/c++/11/ext/type_traits.h \
+  /usr/include/c++/11/fstream \
   /usr/include/c++/11/functional \
   /usr/include/c++/11/initializer_list \
   /usr/include/c++/11/ios \
@@ -149,6 +153,7 @@ CMakeFiles/Transpiler.dir/main.cpp.o: /home/user/code/projects/Transpiler/main.c
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/pstl_config.h \
   /usr/include/c++/11/set \
+  /usr/include/c++/11/sstream \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/stdexcept \
   /usr/include/c++/11/streambuf \
@@ -259,8 +264,10 @@ CMakeFiles/Transpiler.dir/main.cpp.o: /home/user/code/projects/Transpiler/main.c
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
@@ -1191,9 +1198,21 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /usr/include/c++/11/exception:
 
@@ -1209,11 +1228,7 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/c++/11/cstdio:
 
-/usr/include/c++/11/bits/cxxabi_forced.h:
-
 /usr/include/c++/11/unordered_map:
-
-/usr/include/c++/11/ext/concurrence.h:
 
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
@@ -1243,11 +1258,11 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
-/usr/include/c++/11/ext/atomicity.h:
-
 /usr/include/c++/11/concepts:
 
 /usr/include/c++/11/bits/stl_pair.h:
+
+/usr/include/c++/11/ext/atomicity.h:
 
 /usr/include/c++/11/bits/memoryfwd.h:
 
@@ -1278,6 +1293,8 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 /usr/include/c++/11/bits/allocator.h:
 
 /usr/include/c++/11/pstl/pstl_config.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/c++/11/bits/ranges_util.h:
 
@@ -1313,15 +1330,17 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/c++/11/cstdint:
+
 /usr/include/c++/11/bits/charconv.h:
 
 /usr/include/c++/11/bits/functional_hash.h:
 
-/usr/include/c++/11/cwchar:
-
-/usr/include/c++/11/bits/basic_string.tcc:
-
 /usr/include/c++/11/new:
+
+/usr/include/c++/11/bits/sstream.tcc:
 
 /usr/include/c++/11/climits:
 
@@ -1332,6 +1351,16 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
 /usr/include/c++/11/bits/basic_ios.h:
+
+/usr/include/c++/11/cwchar:
+
+/usr/include/c++/11/bits/basic_string.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
+
+/usr/include/c++/11/bits/locale_classes.tcc:
 
 /usr/include/c++/11/bits/stream_iterator.h:
 
@@ -1385,6 +1414,8 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /home/user/code/projects/Transpiler/include/ast/node.h:
 
+/usr/include/c++/11/bits/fstream.tcc:
+
 /usr/include/syscall.h:
 
 /usr/include/c++/11/bits/stl_tree.h:
@@ -1395,11 +1426,11 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/c++/11/type_traits:
 
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
 /usr/include/c++/11/bits/exception_ptr.h:
 
 /usr/include/c++/11/ext/string_conversions.h:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /home/user/code/projects/Transpiler/include/ast/ast.h:
 
@@ -1414,6 +1445,10 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 /usr/include/c++/11/bits/cpp_type_traits.h:
 
 /usr/include/pthread.h:
+
+/usr/include/c++/11/bits/cxxabi_forced.h:
+
+/usr/include/c++/11/fstream:
 
 /usr/include/c++/11/bits/stl_multiset.h:
 
@@ -1467,6 +1502,8 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
+/usr/include/c++/11/bits/codecvt.h:
+
 /usr/include/c++/11/bits/enable_special_members.h:
 
 /usr/include/c++/11/bits/basic_ios.tcc:
@@ -1489,19 +1526,9 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/c++/11/bits/move.h:
 
-/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
-
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/c++/11/bits/locale_classes.h:
-
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
-
-/usr/include/c++/11/cstdint:
-
-/usr/include/c++/11/bits/stl_algo.h:
-
-/usr/include/c++/11/bits/locale_classes.tcc:
 
 /usr/include/c++/11/iostream:
 
@@ -1510,6 +1537,8 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 /usr/include/c++/11/typeinfo:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/c++/11/ext/concurrence.h:
 
 /home/user/code/projects/Transpiler/src/lexer.cpp:
 
@@ -1537,9 +1566,11 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/c++/11/pstl/execution_defs.h:
 
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/include/c++/11/sstream:
 
 /usr/include/c++/11/stack:
 
@@ -1655,8 +1686,6 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
@@ -1691,10 +1720,6 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
-
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
@@ -1704,8 +1729,6 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
@@ -1728,5 +1751,3 @@ CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/s
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
-/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
