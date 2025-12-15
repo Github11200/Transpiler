@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-  string filePath = "code.txt";
+  string filePath = "../code.txt";
   ifstream file(filePath);
 
   if (!file.is_open())

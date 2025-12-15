@@ -26,12 +26,12 @@ struct IntegerLiteral : ASTNode
   int value;
   IntegerLiteral(int value) : value(value) {}
 
-  void readValue() override { std::cout << value << std::endl; }
+  void readValue() override { std::cout << value; }
 };
 
 struct BinaryExpression : ASTNode
 {
-  std::optional<TokenType> operatorType;
+  TokenType operatorType;
   std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>> left;
   std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>> right;
 
@@ -46,9 +46,47 @@ struct BinaryExpression : ASTNode
                     this->left = std::make_shared<BinaryExpression>(var);
                   if constexpr (std::is_same_v<std::decay_t<decltype(var)>, IntegerLiteral>)
                     this->left = std::make_shared<IntegerLiteral>(var); }, left);
+
+    std::visit([&](const auto &var)
+               {  if constexpr (std::is_same_v<std::decay_t<decltype(var)>, BinaryExpression>)
+                    this->right = std::make_shared<BinaryExpression>(var);
+                  if constexpr (std::is_same_v<std::decay_t<decltype(var)>, IntegerLiteral>)
+                    this->right = std::make_shared<IntegerLiteral>(var); }, right);
   }
 
-  void readValue() override { std::cout << "hi" << std::endl; }
+  void readValue() override
+  {
+    if (std::holds_alternative<std::shared_ptr<IntegerLiteral>>(left))
+      std::get<std::shared_ptr<IntegerLiteral>>(left)->readValue();
+    else if (std::holds_alternative<std::shared_ptr<BinaryExpression>>(left))
+      std::get<std::shared_ptr<BinaryExpression>>(left)->readValue();
+
+    switch (operatorType)
+    {
+    case TokenType::PLUS:
+      std::cout << " + ";
+      break;
+    case TokenType::MINUS:
+      std::cout << " - ";
+      break;
+    case TokenType::MULTIPLY:
+      std::cout << " * ";
+      break;
+    case TokenType::DIVIDE:
+      std::cout << " / ";
+      break;
+
+    default:
+      break;
+    }
+
+    if (std::holds_alternative<std::shared_ptr<IntegerLiteral>>(right))
+      std::get<std::shared_ptr<IntegerLiteral>>(right)
+          ->readValue();
+    else if (std::holds_alternative<std::shared_ptr<BinaryExpression>>(right))
+      std::get<std::shared_ptr<BinaryExpression>>(right)
+          ->readValue();
+  }
 };
 
 struct VariableStatement : ASTNode
@@ -71,6 +109,9 @@ struct VariableStatement : ASTNode
     std::cout << this->identifier << ": ";
     if (std::holds_alternative<std::shared_ptr<IntegerLiteral>>(value))
       std::get<std::shared_ptr<IntegerLiteral>>(value)->readValue();
+    else if (std::holds_alternative<std::shared_ptr<BinaryExpression>>(value))
+      std::get<std::shared_ptr<BinaryExpression>>(value)->readValue();
+    std::cout << std::endl;
   }
 };
 

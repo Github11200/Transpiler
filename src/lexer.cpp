@@ -47,11 +47,10 @@ Lexer::Lexer(string sourceCode)
   keywords.insert("false");
   keywords.insert("with");
 
-  operators.insert("<=");
-  operators.insert(">=");
-  operators.insert("==");
-  operators.insert("++");
-  operators.insert("--");
+  operators.insert("+");
+  operators.insert("-");
+  operators.insert("*");
+  operators.insert("/");
 
   punctuator.insert(";");
   punctuator.insert("}");

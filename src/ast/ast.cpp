@@ -9,7 +9,7 @@ variant<BinaryExpression, IntegerLiteral> AST::evaluateExpression(vector<Token> 
     return IntegerLiteral(stoi(statement[0].tokenString));
 
   // We will assume it contains an operator otherwise
-  BinaryExpression *binaryExpression = nullptr;
+  unique_ptr<BinaryExpression> binaryExpression = nullptr;
   for (int i = 0; i < statement.size(); ++i)
   {
     if (!isOperator(statement[i].tokenType))
@@ -26,10 +26,10 @@ variant<BinaryExpression, IntegerLiteral> AST::evaluateExpression(vector<Token> 
     if (binaryExpression != nullptr)
       binaryExpression->right = std::make_shared<BinaryExpression>(newExpression);
     else
-      binaryExpression = &newExpression;
+      binaryExpression = make_unique<BinaryExpression>(newExpression);
   }
 
-  return *binaryExpression;
+  return *binaryExpression.get();
 }
 
 shared_ptr<VariableStatement> AST::evaluateVariableStatement(vector<Token> &statement)
@@ -41,11 +41,7 @@ shared_ptr<VariableStatement> AST::evaluateVariableStatement(vector<Token> &stat
     expressionTokens.push_back(statement[i]);
 
   variant<BinaryExpression, IntegerLiteral> expression = evaluateExpression(expressionTokens);
-  if (holds_alternative<IntegerLiteral>(expression))
-  {
-    IntegerLiteral integer = get<IntegerLiteral>(expression);
-    return make_shared<VariableStatement>(identifier, integer);
-  }
+  return make_shared<VariableStatement>(identifier, expression);
 }
 
 shared_ptr<FunctionStatement> AST::evaluateFunctionStatement(vector<Token> &statement)
