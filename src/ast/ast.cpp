@@ -2,16 +2,39 @@
 
 using namespace std;
 
-variant<BinaryExpression, IntegerLiteral> AST::evaluateExpression(vector<Token> &statement)
-{
+vector<Token> AST::extractCurlyBracesBody(int &i, const vector<Token> &tokens,
+                                          vector<Token> &currentNodes) {
+  int bracketsDepth = 0;
+  for (; i < tokens.size(); ++i) {
+    if (tokens[i].tokenType == TokenType::CLOSING_CURLY_BRACKET && bracketsDepth == 0) {
+      currentNodes.push_back(tokens[i]);
+      break;
+    }
+    if (tokens[i].tokenType == TokenType::OPENING_CURLY_BRACKET)
+      ++bracketsDepth;
+    currentNodes.push_back(tokens[i]);
+  }
+  return currentNodes;
+}
+
+void AST::incrementToOpeningBracket(int &i, const std::vector<Token> &tokens, std::vector<Token> &currentNodes) {
+  for (; i < tokens.size(); ++i) {
+    currentNodes.push_back(tokens[i]);
+    if (tokens[i].tokenType == TokenType::OPENING_CURLY_BRACKET) {
+      ++i;
+      break;
+    }
+  }
+}
+
+variant<BinaryExpression, IntegerLiteral> AST::evaluateExpression(const vector<Token> &statement) {
   // The statement is something like let x be 5;
   if (statement.size() == 1)
     return IntegerLiteral(stoi(statement[0].tokenString));
 
   // We will assume it contains an operator otherwise
   unique_ptr<BinaryExpression> binaryExpression = nullptr;
-  for (int i = 0; i < statement.size(); ++i)
-  {
+  for (int i = 0; i < statement.size(); ++i) {
     if (!isOperator(statement[i].tokenType))
       continue;
 
@@ -29,11 +52,10 @@ variant<BinaryExpression, IntegerLiteral> AST::evaluateExpression(vector<Token> 
       binaryExpression = make_unique<BinaryExpression>(newExpression);
   }
 
-  return *binaryExpression.get();
+  return *binaryExpression;
 }
 
-shared_ptr<VariableStatement> AST::evaluateVariableStatement(vector<Token> &statement)
-{
+shared_ptr<VariableStatement> AST::evaluateVariableStatement(const vector<Token> &statement) {
   string identifier = statement[1].tokenString;
 
   vector<Token> expressionTokens;
@@ -44,8 +66,7 @@ shared_ptr<VariableStatement> AST::evaluateVariableStatement(vector<Token> &stat
   return make_shared<VariableStatement>(identifier, expression);
 }
 
-shared_ptr<FunctionStatement> AST::evaluateFunctionStatement(vector<Token> &statement)
-{
+shared_ptr<FunctionStatement> AST::evaluateFunctionStatement(const vector<Token> &statement) {
   string identifier = statement[1].tokenString;
   vector<string> parameters;
 
@@ -53,62 +74,54 @@ shared_ptr<FunctionStatement> AST::evaluateFunctionStatement(vector<Token> &stat
   int startOfFunctionBody = 3;
 
   // The function has parameters
-  if (statement[2].tokenType == TokenType::WITH)
-  {
+  if (statement[2].tokenType == TokenType::WITH) {
     int i = 3;
-    for (; i < statement.size(); ++i)
-    {
+    for (; i < statement.size(); ++i) {
       if (statement[i].tokenType == TokenType::COMMA)
         continue;
-      else if (statement[i].tokenType == TokenType::AS)
+      if (statement[i].tokenType == TokenType::AS)
         break;
       parameters.push_back(statement[i].tokenString);
     }
     startOfFunctionBody = i + 1;
   }
+  ++startOfFunctionBody;
 
   vector<Token> functionBodyTokens;
 
-  // Subtract 1 to exclude closing bracket
-  for (int i = startOfFunctionBody + 1; i < statement.size(); ++i)
-    functionBodyTokens.push_back(statement[i]);
+  extractCurlyBracesBody(startOfFunctionBody, statement, functionBodyTokens);
 
-  vector<shared_ptr<ASTNode>> functionBody = constructAST(functionBodyTokens).get()->nodes;
+  vector<shared_ptr<ASTNode> > functionBody = constructAST(functionBodyTokens).get()->nodes;
   return make_shared<FunctionStatement>(identifier, functionBody, parameters);
 }
 
-shared_ptr<Root> AST::constructAST(vector<Token> tokens)
-{
+shared_ptr<IfStatement> AST::evaluateIfStatement(const vector<Token> &statement) {
+}
+
+shared_ptr<Root> AST::constructAST(const vector<Token> &tokens) {
   Root rootNode;
 
   vector<Token> currentNodes;
-  for (int i = 0; i < tokens.size(); ++i)
-  {
+  for (int i = 0; i < tokens.size(); ++i) {
     currentNodes.push_back(tokens[i]);
     std::shared_ptr<ASTNode> newNode = nullptr;
 
-    if (tokens[i].tokenType == TokenType::SEMICOLON)
-    {
+    if (tokens[i].tokenType == TokenType::SEMICOLON) {
       newNode = evaluateVariableStatement(currentNodes);
-      currentNodes.clear();
-    }
-    else if (tokens[i].tokenType == TokenType::OPENING_CURLY_BRACKET)
-    {
-      int bracketsDepth = 0;
-      ++i;
-      for (; i < tokens.size(); ++i)
-      {
-        if (tokens[i].tokenType == TokenType::CLOSING_CURLY_BRACKET && bracketsDepth == 0)
-          break;
-        else if (tokens[i].tokenType == TokenType::OPENING_CURLY_BRACKET)
-          ++bracketsDepth;
-        currentNodes.push_back(tokens[i]);
-      }
+    } else if (tokens[i].tokenType == TokenType::IF) {
+      incrementToOpeningBracket(++i, tokens, currentNodes);
+      extractCurlyBracesBody(i, tokens, currentNodes);
+    } else if (tokens[i].tokenType == TokenType::DEFINE) {
+      incrementToOpeningBracket(++i, tokens, currentNodes);
+      extractCurlyBracesBody(i, tokens, currentNodes);
+
       newNode = evaluateFunctionStatement(currentNodes);
     }
 
-    if (newNode != nullptr)
+    if (newNode != nullptr) {
       rootNode.nodes.push_back(newNode);
+      currentNodes.clear();
+    }
   }
 
   return make_shared<Root>(rootNode);

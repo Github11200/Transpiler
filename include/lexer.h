@@ -18,14 +18,8 @@ private:
   std::vector<std::string> splitSourceCode;
   int index;
 
-  std::optional<char> peekCharacter();
-  std::optional<char> consumeCharacter();
-
-  std::string peekWord();
-  std::string consumeWord();
-
 public:
-  Lexer(std::string sourceCode);
+  explicit Lexer(std::string sourceCode);
 
   std::vector<Token> getTokens();
 };

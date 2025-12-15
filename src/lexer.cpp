@@ -2,37 +2,6 @@
 
 using namespace std;
 
-optional<char> Lexer::peekCharacter()
-{
-  if (index + 1 < sourceCode.size())
-    return sourceCode[index + 1];
-  return nullopt;
-}
-
-optional<char> Lexer::consumeCharacter()
-{
-  optional<char> character = peekCharacter();
-  if (!character.has_value())
-    return nullopt;
-  ++index;
-  return character;
-}
-
-string Lexer::peekWord()
-{
-  string word = "";
-  for (int i = index; sourceCode[i] != ' ' && i < sourceCode.size(); ++i)
-    word.push_back(sourceCode[i]);
-  return sourceCode;
-}
-
-string Lexer::consumeWord()
-{
-  string word = peekWord();
-  index += word.size();
-  return word;
-}
-
 Lexer::Lexer(string sourceCode)
 {
   keywords.insert("let");

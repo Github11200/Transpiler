@@ -2,14 +2,14 @@
 
 using namespace std;
 
-vector<string> splitString(string &input, set<string> &delimeters)
+vector<string> splitString(string &input, set<string> &delimiters)
 {
   vector<string> strings;
   string currentString = "";
 
   for (char character : input)
   {
-    if (delimeters.contains(string(1, character)))
+    if (delimiters.contains(string(1, character)))
     {
       if (currentString != "")
         strings.push_back(currentString);

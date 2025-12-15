@@ -3,6 +3,7 @@
 
 #include <string>
 #include <concepts>
+#include <utility>
 #include <vector>
 
 enum class TokenType
@@ -41,7 +42,7 @@ public:
   TokenType tokenType;
   std::string tokenString;
 
-  Token(TokenType tokenType, std::string tokenString) : tokenType(tokenType), tokenString(tokenString) {}
+  Token(const TokenType tokenType, std::string tokenString) : tokenType(tokenType), tokenString(std::move(tokenString)) {}
 };
 
 #endif

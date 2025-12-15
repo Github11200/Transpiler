@@ -7,13 +7,11 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
   string filePath = "../code.txt";
   ifstream file(filePath);
 
-  if (!file.is_open())
-  {
+  if (!file.is_open()) {
     cout << "Couldn't open file." << endl;
     return -1;
   }
@@ -28,10 +26,8 @@ int main()
   vector<Token> tokens = lexer.getTokens();
   AST ast;
 
-  shared_ptr<Root> node = ast.constructAST(tokens);
-  Root *pointer = node.get();
-  ASTNode *inty = pointer->nodes[0].get();
-  for (auto node : pointer->nodes)
+  shared_ptr<Root> rootNode = ast.constructAST(tokens);
+  for (Root *pointer = rootNode.get(); const auto &node: pointer->nodes)
     node->readValue();
 
   file.close();

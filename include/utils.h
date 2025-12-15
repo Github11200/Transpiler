@@ -8,7 +8,7 @@
 #include <algorithm>
 #include "token.h"
 
-std::vector<std::string> splitString(std::string &input, std::set<std::string> &delimeters);
+std::vector<std::string> splitString(std::string &input, std::set<std::string> &delimiters);
 bool isInteger(std::string &input);
 bool isDouble(std::string &input);
 bool isOperator(TokenType tokenType);
