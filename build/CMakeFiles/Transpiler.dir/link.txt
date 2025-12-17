@@ -1,1 +1,1 @@
-/usr/bin/g++ -g CMakeFiles/Transpiler.dir/main.cpp.o CMakeFiles/Transpiler.dir/src/lexer.cpp.o CMakeFiles/Transpiler.dir/src/token.cpp.o CMakeFiles/Transpiler.dir/src/utils.cpp.o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o -o Transpiler
+/usr/bin/c++ -g CMakeFiles/Transpiler.dir/main.cpp.o CMakeFiles/Transpiler.dir/src/lexer.cpp.o CMakeFiles/Transpiler.dir/src/token.cpp.o CMakeFiles/Transpiler.dir/src/utils.cpp.o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o CMakeFiles/Transpiler.dir/src/ast/node.cpp.o -o Transpiler

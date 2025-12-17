@@ -184,6 +184,30 @@ src/ast/ast.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/ast/ast.cpp.s
 .PHONY : src/ast/ast.cpp.s
 
+src/ast/node.o: src/ast/node.cpp.o
+.PHONY : src/ast/node.o
+
+# target to build an object file
+src/ast/node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/ast/node.cpp.o
+.PHONY : src/ast/node.cpp.o
+
+src/ast/node.i: src/ast/node.cpp.i
+.PHONY : src/ast/node.i
+
+# target to preprocess a source file
+src/ast/node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/ast/node.cpp.i
+.PHONY : src/ast/node.cpp.i
+
+src/ast/node.s: src/ast/node.cpp.s
+.PHONY : src/ast/node.s
+
+# target to generate assembly for a file
+src/ast/node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transpiler.dir/build.make CMakeFiles/Transpiler.dir/src/ast/node.cpp.s
+.PHONY : src/ast/node.cpp.s
+
 src/lexer.o: src/lexer.cpp.o
 .PHONY : src/lexer.o
 
@@ -272,6 +296,9 @@ help:
 	@echo "... src/ast/ast.o"
 	@echo "... src/ast/ast.i"
 	@echo "... src/ast/ast.s"
+	@echo "... src/ast/node.o"
+	@echo "... src/ast/node.i"
+	@echo "... src/ast/node.s"
 	@echo "... src/lexer.o"
 	@echo "... src/lexer.i"
 	@echo "... src/lexer.s"

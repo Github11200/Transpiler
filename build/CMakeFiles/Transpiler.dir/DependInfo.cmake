@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/user/code/projects/Transpiler/main.cpp" "CMakeFiles/Transpiler.dir/main.cpp.o" "gcc" "CMakeFiles/Transpiler.dir/main.cpp.o.d"
   "/home/user/code/projects/Transpiler/src/ast/ast.cpp" "CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o" "gcc" "CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o.d"
+  "/home/user/code/projects/Transpiler/src/ast/node.cpp" "CMakeFiles/Transpiler.dir/src/ast/node.cpp.o" "gcc" "CMakeFiles/Transpiler.dir/src/ast/node.cpp.o.d"
   "/home/user/code/projects/Transpiler/src/lexer.cpp" "CMakeFiles/Transpiler.dir/src/lexer.cpp.o" "gcc" "CMakeFiles/Transpiler.dir/src/lexer.cpp.o.d"
   "/home/user/code/projects/Transpiler/src/token.cpp" "CMakeFiles/Transpiler.dir/src/token.cpp.o" "gcc" "CMakeFiles/Transpiler.dir/src/token.cpp.o.d"
   "/home/user/code/projects/Transpiler/src/utils.cpp" "CMakeFiles/Transpiler.dir/src/utils.cpp.o" "gcc" "CMakeFiles/Transpiler.dir/src/utils.cpp.o.d"

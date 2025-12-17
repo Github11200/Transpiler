@@ -76,71 +76,85 @@ CMakeFiles/Transpiler.dir/main.cpp.o: CMakeFiles/Transpiler.dir/flags.make
 CMakeFiles/Transpiler.dir/main.cpp.o: /home/user/code/projects/Transpiler/main.cpp
 CMakeFiles/Transpiler.dir/main.cpp.o: CMakeFiles/Transpiler.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Transpiler.dir/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/main.cpp.o -MF CMakeFiles/Transpiler.dir/main.cpp.o.d -o CMakeFiles/Transpiler.dir/main.cpp.o -c /home/user/code/projects/Transpiler/main.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/main.cpp.o -MF CMakeFiles/Transpiler.dir/main.cpp.o.d -o CMakeFiles/Transpiler.dir/main.cpp.o -c /home/user/code/projects/Transpiler/main.cpp
 
 CMakeFiles/Transpiler.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Transpiler.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/main.cpp > CMakeFiles/Transpiler.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/main.cpp > CMakeFiles/Transpiler.dir/main.cpp.i
 
 CMakeFiles/Transpiler.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Transpiler.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/main.cpp -o CMakeFiles/Transpiler.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/main.cpp -o CMakeFiles/Transpiler.dir/main.cpp.s
 
 CMakeFiles/Transpiler.dir/src/lexer.cpp.o: CMakeFiles/Transpiler.dir/flags.make
 CMakeFiles/Transpiler.dir/src/lexer.cpp.o: /home/user/code/projects/Transpiler/src/lexer.cpp
 CMakeFiles/Transpiler.dir/src/lexer.cpp.o: CMakeFiles/Transpiler.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Transpiler.dir/src/lexer.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/lexer.cpp.o -MF CMakeFiles/Transpiler.dir/src/lexer.cpp.o.d -o CMakeFiles/Transpiler.dir/src/lexer.cpp.o -c /home/user/code/projects/Transpiler/src/lexer.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/lexer.cpp.o -MF CMakeFiles/Transpiler.dir/src/lexer.cpp.o.d -o CMakeFiles/Transpiler.dir/src/lexer.cpp.o -c /home/user/code/projects/Transpiler/src/lexer.cpp
 
 CMakeFiles/Transpiler.dir/src/lexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Transpiler.dir/src/lexer.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/lexer.cpp > CMakeFiles/Transpiler.dir/src/lexer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/lexer.cpp > CMakeFiles/Transpiler.dir/src/lexer.cpp.i
 
 CMakeFiles/Transpiler.dir/src/lexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Transpiler.dir/src/lexer.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/lexer.cpp -o CMakeFiles/Transpiler.dir/src/lexer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/lexer.cpp -o CMakeFiles/Transpiler.dir/src/lexer.cpp.s
 
 CMakeFiles/Transpiler.dir/src/token.cpp.o: CMakeFiles/Transpiler.dir/flags.make
 CMakeFiles/Transpiler.dir/src/token.cpp.o: /home/user/code/projects/Transpiler/src/token.cpp
 CMakeFiles/Transpiler.dir/src/token.cpp.o: CMakeFiles/Transpiler.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Transpiler.dir/src/token.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/token.cpp.o -MF CMakeFiles/Transpiler.dir/src/token.cpp.o.d -o CMakeFiles/Transpiler.dir/src/token.cpp.o -c /home/user/code/projects/Transpiler/src/token.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/token.cpp.o -MF CMakeFiles/Transpiler.dir/src/token.cpp.o.d -o CMakeFiles/Transpiler.dir/src/token.cpp.o -c /home/user/code/projects/Transpiler/src/token.cpp
 
 CMakeFiles/Transpiler.dir/src/token.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Transpiler.dir/src/token.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/token.cpp > CMakeFiles/Transpiler.dir/src/token.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/token.cpp > CMakeFiles/Transpiler.dir/src/token.cpp.i
 
 CMakeFiles/Transpiler.dir/src/token.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Transpiler.dir/src/token.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/token.cpp -o CMakeFiles/Transpiler.dir/src/token.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/token.cpp -o CMakeFiles/Transpiler.dir/src/token.cpp.s
 
 CMakeFiles/Transpiler.dir/src/utils.cpp.o: CMakeFiles/Transpiler.dir/flags.make
 CMakeFiles/Transpiler.dir/src/utils.cpp.o: /home/user/code/projects/Transpiler/src/utils.cpp
 CMakeFiles/Transpiler.dir/src/utils.cpp.o: CMakeFiles/Transpiler.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Transpiler.dir/src/utils.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/utils.cpp.o -MF CMakeFiles/Transpiler.dir/src/utils.cpp.o.d -o CMakeFiles/Transpiler.dir/src/utils.cpp.o -c /home/user/code/projects/Transpiler/src/utils.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/utils.cpp.o -MF CMakeFiles/Transpiler.dir/src/utils.cpp.o.d -o CMakeFiles/Transpiler.dir/src/utils.cpp.o -c /home/user/code/projects/Transpiler/src/utils.cpp
 
 CMakeFiles/Transpiler.dir/src/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Transpiler.dir/src/utils.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/utils.cpp > CMakeFiles/Transpiler.dir/src/utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/utils.cpp > CMakeFiles/Transpiler.dir/src/utils.cpp.i
 
 CMakeFiles/Transpiler.dir/src/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Transpiler.dir/src/utils.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/utils.cpp -o CMakeFiles/Transpiler.dir/src/utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/utils.cpp -o CMakeFiles/Transpiler.dir/src/utils.cpp.s
 
 CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o: CMakeFiles/Transpiler.dir/flags.make
 CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o: /home/user/code/projects/Transpiler/src/ast/ast.cpp
 CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o: CMakeFiles/Transpiler.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o -MF CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o.d -o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o -c /home/user/code/projects/Transpiler/src/ast/ast.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o -MF CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o.d -o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o -c /home/user/code/projects/Transpiler/src/ast/ast.cpp
 
 CMakeFiles/Transpiler.dir/src/ast/ast.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Transpiler.dir/src/ast/ast.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/ast/ast.cpp > CMakeFiles/Transpiler.dir/src/ast/ast.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/ast/ast.cpp > CMakeFiles/Transpiler.dir/src/ast/ast.cpp.i
 
 CMakeFiles/Transpiler.dir/src/ast/ast.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Transpiler.dir/src/ast/ast.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/ast/ast.cpp -o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/ast/ast.cpp -o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.s
+
+CMakeFiles/Transpiler.dir/src/ast/node.cpp.o: CMakeFiles/Transpiler.dir/flags.make
+CMakeFiles/Transpiler.dir/src/ast/node.cpp.o: /home/user/code/projects/Transpiler/src/ast/node.cpp
+CMakeFiles/Transpiler.dir/src/ast/node.cpp.o: CMakeFiles/Transpiler.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Transpiler.dir/src/ast/node.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Transpiler.dir/src/ast/node.cpp.o -MF CMakeFiles/Transpiler.dir/src/ast/node.cpp.o.d -o CMakeFiles/Transpiler.dir/src/ast/node.cpp.o -c /home/user/code/projects/Transpiler/src/ast/node.cpp
+
+CMakeFiles/Transpiler.dir/src/ast/node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Transpiler.dir/src/ast/node.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/code/projects/Transpiler/src/ast/node.cpp > CMakeFiles/Transpiler.dir/src/ast/node.cpp.i
+
+CMakeFiles/Transpiler.dir/src/ast/node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Transpiler.dir/src/ast/node.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/code/projects/Transpiler/src/ast/node.cpp -o CMakeFiles/Transpiler.dir/src/ast/node.cpp.s
 
 # Object files for target Transpiler
 Transpiler_OBJECTS = \
@@ -148,7 +162,8 @@ Transpiler_OBJECTS = \
 "CMakeFiles/Transpiler.dir/src/lexer.cpp.o" \
 "CMakeFiles/Transpiler.dir/src/token.cpp.o" \
 "CMakeFiles/Transpiler.dir/src/utils.cpp.o" \
-"CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o"
+"CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o" \
+"CMakeFiles/Transpiler.dir/src/ast/node.cpp.o"
 
 # External object files for target Transpiler
 Transpiler_EXTERNAL_OBJECTS =
@@ -158,9 +173,10 @@ Transpiler: CMakeFiles/Transpiler.dir/src/lexer.cpp.o
 Transpiler: CMakeFiles/Transpiler.dir/src/token.cpp.o
 Transpiler: CMakeFiles/Transpiler.dir/src/utils.cpp.o
 Transpiler: CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o
+Transpiler: CMakeFiles/Transpiler.dir/src/ast/node.cpp.o
 Transpiler: CMakeFiles/Transpiler.dir/build.make
 Transpiler: CMakeFiles/Transpiler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Transpiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/code/projects/Transpiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Transpiler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Transpiler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

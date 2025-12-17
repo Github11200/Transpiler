@@ -1,32 +1,38 @@
 [
 {
   "directory": "/home/user/code/projects/Transpiler/build",
-  "command": "/usr/bin/g++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/main.cpp.o -c /home/user/code/projects/Transpiler/main.cpp",
+  "command": "/usr/bin/c++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/main.cpp.o -c /home/user/code/projects/Transpiler/main.cpp",
   "file": "/home/user/code/projects/Transpiler/main.cpp",
   "output": "CMakeFiles/Transpiler.dir/main.cpp.o"
 },
 {
   "directory": "/home/user/code/projects/Transpiler/build",
-  "command": "/usr/bin/g++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/lexer.cpp.o -c /home/user/code/projects/Transpiler/src/lexer.cpp",
+  "command": "/usr/bin/c++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/lexer.cpp.o -c /home/user/code/projects/Transpiler/src/lexer.cpp",
   "file": "/home/user/code/projects/Transpiler/src/lexer.cpp",
   "output": "CMakeFiles/Transpiler.dir/src/lexer.cpp.o"
 },
 {
   "directory": "/home/user/code/projects/Transpiler/build",
-  "command": "/usr/bin/g++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/token.cpp.o -c /home/user/code/projects/Transpiler/src/token.cpp",
+  "command": "/usr/bin/c++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/token.cpp.o -c /home/user/code/projects/Transpiler/src/token.cpp",
   "file": "/home/user/code/projects/Transpiler/src/token.cpp",
   "output": "CMakeFiles/Transpiler.dir/src/token.cpp.o"
 },
 {
   "directory": "/home/user/code/projects/Transpiler/build",
-  "command": "/usr/bin/g++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/utils.cpp.o -c /home/user/code/projects/Transpiler/src/utils.cpp",
+  "command": "/usr/bin/c++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/utils.cpp.o -c /home/user/code/projects/Transpiler/src/utils.cpp",
   "file": "/home/user/code/projects/Transpiler/src/utils.cpp",
   "output": "CMakeFiles/Transpiler.dir/src/utils.cpp.o"
 },
 {
   "directory": "/home/user/code/projects/Transpiler/build",
-  "command": "/usr/bin/g++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o -c /home/user/code/projects/Transpiler/src/ast/ast.cpp",
+  "command": "/usr/bin/c++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o -c /home/user/code/projects/Transpiler/src/ast/ast.cpp",
   "file": "/home/user/code/projects/Transpiler/src/ast/ast.cpp",
   "output": "CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o"
+},
+{
+  "directory": "/home/user/code/projects/Transpiler/build",
+  "command": "/usr/bin/c++  -I/home/user/code/projects/Transpiler/include -g -std=gnu++23 -o CMakeFiles/Transpiler.dir/src/ast/node.cpp.o -c /home/user/code/projects/Transpiler/src/ast/node.cpp",
+  "file": "/home/user/code/projects/Transpiler/src/ast/node.cpp",
+  "output": "CMakeFiles/Transpiler.dir/src/ast/node.cpp.o"
 }
 ]

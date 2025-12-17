@@ -213,9 +213,8 @@ CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o: \
  /usr/include/c++/11/bits/parse_numbers.h /usr/include/c++/11/vector \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/optional \
- /usr/include/c++/11/iostream /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc \
+ /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/iostream \
+ /usr/include/c++/11/istream /usr/include/c++/11/bits/istream.tcc \
  /home/user/code/projects/Transpiler/include/token.h \
  /home/user/code/projects/Transpiler/include/utils.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/ranges_algo.h \
