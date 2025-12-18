@@ -1,5 +1,4 @@
+- Replace punctation with keywords
 - Finish binary expressions such as 1 + 1
-- Add in comparison statements
-- Add in if statements
 - Add in loops
 - Code generation
