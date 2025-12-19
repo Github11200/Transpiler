@@ -7,11 +7,13 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
   string filePath = "../code.txt";
   ifstream file(filePath);
 
-  if (!file.is_open()) {
+  if (!file.is_open())
+  {
     cout << "Couldn't open file." << endl;
     return -1;
   }
@@ -24,11 +26,13 @@ int main() {
 
   Lexer lexer(code);
   vector<Token> tokens = lexer.getTokens();
-  AST ast;
+  for (int i = 0; i < tokens.size(); ++i)
+    cout << tokens[i].tokenString << endl;
+  // AST ast;
 
-  shared_ptr<Root> rootNode = ast.constructAST(tokens);
-  for (Root *pointer = rootNode.get(); const auto &node: pointer->nodes)
-    node->readValue();
+  // shared_ptr<Root> rootNode = ast.constructAST(tokens);
+  // for (Root *pointer = rootNode.get(); const auto &node : pointer->nodes)
+  //   node->readValue();
 
   file.close();
 

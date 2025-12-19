@@ -12,8 +12,6 @@ class Lexer
 {
 private:
   std::set<std::string> keywords;
-  std::set<std::string> operators;
-  std::set<std::string> punctuator;
   std::string sourceCode;
   std::vector<std::string> splitSourceCode;
   int index;

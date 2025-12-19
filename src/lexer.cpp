@@ -5,31 +5,27 @@ using namespace std;
 Lexer::Lexer(string sourceCode)
 {
   keywords.insert("let");
-  keywords.insert("if");
   keywords.insert("be");
-  keywords.insert("point");
+  keywords.insert("pointer");
   keywords.insert("to");
+  keywords.insert("stop");
   keywords.insert("define");
   keywords.insert("as");
-  keywords.insert("repeat");
-  keywords.insert("true");
-  keywords.insert("false");
+  keywords.insert("end");
   keywords.insert("with");
+  keywords.insert("if");
+  keywords.insert("greater");
+  keywords.insert("than");
+  keywords.insert("then");
+  keywords.insert("less");
+  keywords.insert("or");
+  keywords.insert("equal");
+  keywords.insert("otherwise");
+  keywords.insert("for");
+  keywords.insert("repeat");
 
-  operators.insert("+");
-  operators.insert("-");
-  operators.insert("*");
-  operators.insert("/");
-
-  punctuator.insert(";");
-  punctuator.insert("}");
-  punctuator.insert("{");
-  punctuator.insert("\"");
-  punctuator.insert(",");
-  punctuator.insert(" ");
-
-  this->sourceCode = sourceCode;
-  this->splitSourceCode = splitString(sourceCode, punctuator);
+  set<string> delimeters = {" ", "stop", "then", "as", "end", "otherwise", "repeat"};
+  this->splitSourceCode = splitString(sourceCode, delimeters);
   this->index = 0;
 }
 
@@ -44,54 +40,46 @@ vector<Token> Lexer::getTokens()
 
     Token token(TokenType::IDENTIFIER, " ");
 
-    if (operators.contains(currentToken))
-    {
-      if (currentToken == "+")
-        token.tokenType = TokenType::PLUS;
-      else if (currentToken == "-")
-        token.tokenType = TokenType::MINUS;
-      else if (currentToken == "*")
-        token.tokenType = TokenType::MULTIPLY;
-      else if (currentToken == "/")
-        token.tokenType = TokenType::DIVIDE;
-    }
-
     if (keywords.contains(currentToken))
     {
       if (currentToken == "let")
         token.tokenType = TokenType::LET;
-      else if (currentToken == "if")
-        token.tokenType = TokenType::IF;
       else if (currentToken == "be")
         token.tokenType = TokenType::BE;
-      else if (currentToken == "as")
-        token.tokenType = TokenType::AS;
-      else if (currentToken == "point")
-        token.tokenType = TokenType::POINT;
+      else if (currentToken == "pointer")
+        token.tokenType = TokenType::POINTER;
+      else if (currentToken == "to")
+        token.tokenType = TokenType::TO;
+      else if (currentToken == "stop")
+        token.tokenType = TokenType::STOP;
       else if (currentToken == "define")
         token.tokenType = TokenType::DEFINE;
+      else if (currentToken == "as")
+        token.tokenType = TokenType::AS;
+      else if (currentToken == "end")
+        token.tokenType = TokenType::END;
+      else if (currentToken == "if")
+        token.tokenType = TokenType::IF;
+      else if (currentToken == "greater")
+        token.tokenType = TokenType::GREATER;
+      else if (currentToken == "than")
+        token.tokenType = TokenType::THAN;
+      else if (currentToken == "then")
+        token.tokenType = TokenType::THEN;
+      else if (currentToken == "less")
+        token.tokenType = TokenType::LESS;
+      else if (currentToken == "or")
+        token.tokenType = TokenType::OR;
+      else if (currentToken == "or")
+        token.tokenType = TokenType::OR;
+      else if (currentToken == "equal")
+        token.tokenType = TokenType::EQUAL;
+      else if (currentToken == "otherwise")
+        token.tokenType = TokenType::OTHERWISE;
+      else if (currentToken == "for")
+        token.tokenType = TokenType::FOR;
       else if (currentToken == "repeat")
         token.tokenType = TokenType::REPEAT;
-      else if (currentToken == "true")
-        token.tokenType = TokenType::TRUE;
-      else if (currentToken == "false")
-        token.tokenType = TokenType::FALSE;
-      else if (currentToken == "with")
-        token.tokenType = TokenType::WITH;
-    }
-
-    if (punctuator.contains(currentToken))
-    {
-      if (currentToken == ";")
-        token.tokenType = TokenType::SEMICOLON;
-      else if (currentToken == "{")
-        token.tokenType = TokenType::OPENING_CURLY_BRACKET;
-      else if (currentToken == "}")
-        token.tokenType = TokenType::CLOSING_CURLY_BRACKET;
-      else if (currentToken == "\"")
-        token.tokenType = TokenType::QUOTE;
-      else if (currentToken == ",")
-        token.tokenType = TokenType::COMMA;
     }
 
     if (token.tokenType != TokenType::IDENTIFIER)
@@ -103,9 +91,7 @@ vector<Token> Lexer::getTokens()
 
     if (isInteger(currentToken))
       token.tokenType = TokenType::INTEGER_LITERAL;
-    else if (isDouble(currentToken))
-      token.tokenType = TokenType::FLOAT;
-    else if (!punctuator.contains(currentToken))
+    else if (!keywords.contains(currentToken))
       token.tokenType = TokenType::IDENTIFIER;
     else
       throw "What are you doing.";

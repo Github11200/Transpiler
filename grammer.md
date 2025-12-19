@@ -3,6 +3,8 @@ Variables:
 let x be 5 stop
 let y be pointer to x stop
 let z be pointer pointer to y stop
+let a be 5 plus 5 stop
+let b be 1 minus 1 stop
 
 Functions:
 
@@ -14,23 +16,45 @@ end
 
 Conditionals:
 
-if x greaterThan y then
+if x greater than y then
 end
 
-if x lessThan y then
+if x less than or equals to y then
 end otherwise
 end
 
 if x equals y then
-end otherwise if x lessThan y then
+end otherwise if x less than y then
 end
 
 Loops:
 
-for i lessThan 10 do
+for i less than 10 repeat
+end
 
-again
+Keywords:
 
-while i greaterThan 0 do
+let
+be
+pointer
+to
+stop
+define
+as
+end
+with
+if
+greater
+than
+then
+less
+or
+equal
+otherwise
+for
+repeat
 
-again
+plus
+minus
+times
+divide

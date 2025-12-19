@@ -10,30 +10,31 @@ enum class TokenType
 {
   PLUS,
   MINUS,
-  MULTIPLY,
+  TIMES,
   DIVIDE,
 
   LET,
-  IF,
   BE,
-  AS,
-  POINT,
+  POINTER,
+  TO,
+  STOP,
   DEFINE,
-  REPEAT,
-  TRUE,
-  FALSE,
+  AS,
+  END,
   WITH,
-
-  SEMICOLON,
-  OPENING_CURLY_BRACKET,
-  CLOSING_CURLY_BRACKET,
-  QUOTE,
-  COMMA,
-  SPACE,
+  IF,
+  GREATER,
+  THAN,
+  THEN,
+  LESS,
+  OR,
+  EQUAL,
+  OTHERWISE,
+  FOR,
+  REPEAT,
 
   IDENTIFIER,
-  INTEGER_LITERAL,
-  FLOAT
+  INTEGER_LITERAL
 };
 
 class Token

@@ -9,12 +9,17 @@ vector<string> splitString(string &input, set<string> &delimiters)
 
   for (char character : input)
   {
-    if (delimiters.contains(string(1, character)))
+    if (delimiters.contains(string(1, character)) || delimiters.contains(currentString))
     {
-      if (currentString != "")
+      if (currentString != "" && currentString != " ")
         strings.push_back(currentString);
-      strings.push_back(string(1, character));
-      currentString = "";
+      if (delimiters.contains(string(1, character)))
+      {
+        strings.push_back(string(1, character));
+        currentString = "";
+      }
+      else
+        currentString = string(1, character);
     }
     else
       currentString += character;
@@ -42,7 +47,7 @@ bool isOperator(TokenType tokenType)
 {
   if (tokenType == TokenType::PLUS ||
       tokenType == TokenType::MINUS ||
-      tokenType == TokenType::MULTIPLY ||
+      tokenType == TokenType::TIMES ||
       tokenType == TokenType::DIVIDE)
     return true;
   return false;

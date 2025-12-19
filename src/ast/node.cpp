@@ -48,7 +48,7 @@ void BinaryExpression::readValue()
   case TokenType::MINUS:
     cout << " - ";
     break;
-  case TokenType::MULTIPLY:
+  case TokenType::TIMES:
     cout << " * ";
     break;
   case TokenType::DIVIDE:
