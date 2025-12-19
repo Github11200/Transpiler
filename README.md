@@ -1,2 +1,2 @@
-# Transpiler
-A transpiler from my own language to JavaScript.
+# Compiler
+A compiler for my own language, verbosity.
