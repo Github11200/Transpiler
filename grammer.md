@@ -11,7 +11,7 @@ Functions:
 define doSomething as
 end
 
-define doSomething with x, y, z as
+define doSomething with x y z as
 end
 
 Conditionals:
@@ -20,11 +20,11 @@ if x greater than y then
 end
 
 if x less than or equals to y then
-end otherwise
+otherwise
 end
 
 if x equals y then
-end otherwise if x less than y then
+otherwise if x less than y then
 end
 
 Loops:

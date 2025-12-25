@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/user/code/projects/Transpiler/build"
+			"value" : "/home/user/code/projects/Compiler/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -92,22 +92,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "3"
-		},
-		{
-			"name" : "CMAKE_COLOR_MAKEFILE",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Enable/Disable color output during build."
-				}
-			],
-			"type" : "BOOL",
-			"value" : "ON"
 		},
 		{
 			"name" : "CMAKE_COMMAND",
@@ -158,8 +142,8 @@
 					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
-			"value" : "/usr/bin/c++"
+			"type" : "STRING",
+			"value" : "/home/linuxbrew/.linuxbrew/bin/g++-15"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -175,7 +159,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ar-11"
+			"value" : "/home/linuxbrew/.linuxbrew/bin/gcc-ar-15"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -191,7 +175,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ranlib-11"
+			"value" : "/home/linuxbrew/.linuxbrew/bin/gcc-ranlib-15"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -272,6 +256,18 @@
 			],
 			"type" : "STRING",
 			"value" : "-O2 -g -DNDEBUG"
+		},
+		{
+			"name" : "CMAKE_C_COMPILER",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "No help, variable specified on the command line."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/home/linuxbrew/.linuxbrew/bin/gcc-15"
 		},
 		{
 			"name" : "CMAKE_DLLTOOL",
@@ -394,6 +390,22 @@
 			"value" : ""
 		},
 		{
+			"name" : "CMAKE_EXPORT_BUILD_DATABASE",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Enable/Disable output of build database during the build."
+				}
+			],
+			"type" : "BOOL",
+			"value" : ""
+		},
+		{
 			"name" : "CMAKE_EXPORT_COMPILE_COMMANDS",
 			"properties" : 
 			[
@@ -402,8 +414,8 @@
 					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "UNINITIALIZED",
-			"value" : "ON"
+			"type" : "BOOL",
+			"value" : "TRUE"
 		},
 		{
 			"name" : "CMAKE_EXTRA_GENERATOR",
@@ -427,7 +439,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/user/code/projects/Transpiler/build/CMakeFiles/pkgRedirects"
+			"value" : "/home/user/code/projects/Compiler/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -439,7 +451,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "Unix Makefiles"
+			"value" : "Ninja"
 		},
 		{
 			"name" : "CMAKE_GENERATOR_INSTANCE",
@@ -487,7 +499,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/user/code/projects/Transpiler"
+			"value" : "/home/user/code/projects/Compiler"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -551,11 +563,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "Path to a program."
+					"value" : "Program used to build from build.ninja files."
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gmake"
+			"value" : "/usr/bin/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1051,7 +1063,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/user/code/projects/Transpiler/build"
+			"value" : "/home/user/code/projects/Compiler/build"
 		},
 		{
 			"name" : "Transpiler_IS_TOP_LEVEL",
@@ -1075,7 +1087,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/user/code/projects/Transpiler"
+			"value" : "/home/user/code/projects/Compiler"
 		}
 	],
 	"kind" : "cache",

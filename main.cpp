@@ -26,8 +26,6 @@ int main()
 
   Lexer lexer(code);
   vector<Token> tokens = lexer.getTokens();
-  for (int i = 0; i < tokens.size(); ++i)
-    cout << tokens[i].tokenString << endl;
   // AST ast;
 
   // shared_ptr<Root> rootNode = ast.constructAST(tokens);

@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Transpiler::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Transpiler-Debug-418b59d642d81091900b.json",
+					"jsonFile" : "target-Transpiler-Debug-ecc4e54bd3279d80bce4.json",
 					"name" : "Transpiler",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/user/code/projects/Transpiler/build",
-		"source" : "/home/user/code/projects/Transpiler"
+		"build" : "/home/user/code/projects/Compiler/build",
+		"source" : "/home/user/code/projects/Compiler"
 	},
 	"version" : 
 	{
