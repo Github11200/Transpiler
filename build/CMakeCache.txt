@@ -23,8 +23,8 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
 
-//CXX compiler
-CMAKE_CXX_COMPILER:STRING=/home/linuxbrew/.linuxbrew/bin/g++-15
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:FILEPATH=/home/linuxbrew/.linuxbrew/bin/g++-15
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
