@@ -97,6 +97,14 @@ build CMakeFiles/Transpiler.dir/src/ast/node.cpp.o: CXX_COMPILER__Transpiler_uns
   OBJECT_DIR = CMakeFiles/Transpiler.dir
   OBJECT_FILE_DIR = CMakeFiles/Transpiler.dir/src/ast
 
+build CMakeFiles/Transpiler.dir/src/codeGenerator.cpp.o: CXX_COMPILER__Transpiler_unscanned_Debug /home/user/code/projects/Compiler/src/codeGenerator.cpp || cmake_object_order_depends_target_Transpiler
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/Transpiler.dir/src/codeGenerator.cpp.o.d
+  FLAGS = -g -std=gnu++26
+  INCLUDES = -I/home/user/code/projects/Compiler/include
+  OBJECT_DIR = CMakeFiles/Transpiler.dir
+  OBJECT_FILE_DIR = CMakeFiles/Transpiler.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Transpiler
@@ -105,7 +113,7 @@ build CMakeFiles/Transpiler.dir/src/ast/node.cpp.o: CXX_COMPILER__Transpiler_uns
 #############################################
 # Link the executable Transpiler
 
-build Transpiler: CXX_EXECUTABLE_LINKER__Transpiler_Debug CMakeFiles/Transpiler.dir/main.cpp.o CMakeFiles/Transpiler.dir/src/lexer.cpp.o CMakeFiles/Transpiler.dir/src/token.cpp.o CMakeFiles/Transpiler.dir/src/utils.cpp.o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o CMakeFiles/Transpiler.dir/src/ast/node.cpp.o
+build Transpiler: CXX_EXECUTABLE_LINKER__Transpiler_Debug CMakeFiles/Transpiler.dir/main.cpp.o CMakeFiles/Transpiler.dir/src/lexer.cpp.o CMakeFiles/Transpiler.dir/src/token.cpp.o CMakeFiles/Transpiler.dir/src/utils.cpp.o CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o CMakeFiles/Transpiler.dir/src/ast/node.cpp.o CMakeFiles/Transpiler.dir/src/codeGenerator.cpp.o
   CONFIG = Debug
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Transpiler.dir
