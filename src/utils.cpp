@@ -9,7 +9,9 @@ vector<string> splitString(string &input, set<string> &delimiters)
 
   for (char character : input)
   {
-    if (delimiters.contains(string(1, character)) || delimiters.contains(currentString))
+    if (iscntrl(static_cast<unsigned char>(character)))
+      continue;
+    if (delimiters.contains(currentString) || delimiters.contains(string(1, character)))
     {
       if (currentString != "" && currentString != " ")
         strings.push_back(currentString);
@@ -51,4 +53,11 @@ bool isOperator(TokenType tokenType)
       tokenType == TokenType::DIVIDE)
     return true;
   return false;
+}
+
+template <class T>
+void printVector(const vector<T> &inputVector)
+{
+  for (auto element : inputVector)
+    cout << element << endl;
 }

@@ -2,7 +2,6 @@ Variables:
 
 let x be 5 stop
 let y be pointer to x stop
-let z be pointer pointer to y stop
 let a be 5 plus 5 stop
 let b be 1 minus 1 stop
 
@@ -20,7 +19,7 @@ if x greater than y then
 end
 
 if x less than or equals to y then
-otherwise
+otherwise just
 end
 
 if x equals y then

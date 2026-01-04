@@ -32,6 +32,7 @@ enum class TokenType
   OTHERWISE,
   FOR,
   REPEAT,
+  JUST,
 
   IDENTIFIER,
   INTEGER_LITERAL

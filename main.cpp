@@ -1,9 +1,10 @@
+#include "ast/ast.h"
+#include "lexer.h"
+#include "codeGenerator.h"
+#include <fstream>
 #include <iostream>
 #include <memory>
-#include <fstream>
 #include <sstream>
-#include "lexer.h"
-#include "ast/ast.h"
 
 using namespace std;
 
@@ -26,12 +27,12 @@ int main()
 
   Lexer lexer(code);
   vector<Token> tokens = lexer.getTokens();
-  // AST ast;
+  AST ast;
 
-  // shared_ptr<Root> rootNode = ast.constructAST(tokens);
-  // for (Root *pointer = rootNode.get(); const auto &node : pointer->nodes)
-  //   node->readValue();
+  shared_ptr<Root> rootNode = ast.constructAST(tokens);
+  CodeGenerator codeGenerator(rootNode);
 
+  codeGenerator.generate("../compiled.cpp");
   file.close();
 
   return 0;

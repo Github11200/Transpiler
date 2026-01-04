@@ -1,4 +1,5 @@
 #include "lexer.h"
+#include <iostream>
 
 using namespace std;
 
@@ -23,6 +24,11 @@ Lexer::Lexer(string sourceCode)
   keywords.insert("otherwise");
   keywords.insert("for");
   keywords.insert("repeat");
+  keywords.insert("plus");
+  keywords.insert("times");
+  keywords.insert("divide");
+  keywords.insert("minus");
+  keywords.insert("just");
 
   set<string> delimeters = {" ", "stop", "then", "as", "end", "otherwise", "repeat"};
   this->splitSourceCode = splitString(sourceCode, delimeters);
@@ -70,8 +76,8 @@ vector<Token> Lexer::getTokens()
         token.tokenType = TokenType::LESS;
       else if (currentToken == "or")
         token.tokenType = TokenType::OR;
-      else if (currentToken == "or")
-        token.tokenType = TokenType::OR;
+      else if (currentToken == "with")
+        token.tokenType = TokenType::WITH;
       else if (currentToken == "equal")
         token.tokenType = TokenType::EQUAL;
       else if (currentToken == "otherwise")
@@ -80,6 +86,16 @@ vector<Token> Lexer::getTokens()
         token.tokenType = TokenType::FOR;
       else if (currentToken == "repeat")
         token.tokenType = TokenType::REPEAT;
+      else if (currentToken == "plus")
+        token.tokenType = TokenType::PLUS;
+      else if (currentToken == "minus")
+        token.tokenType = TokenType::MINUS;
+      else if (currentToken == "times")
+        token.tokenType = TokenType::TIMES;
+      else if (currentToken == "divide")
+        token.tokenType = TokenType::DIVIDE;
+      else if (currentToken == "just")
+        token.tokenType = TokenType::JUST;
     }
 
     if (token.tokenType != TokenType::IDENTIFIER)

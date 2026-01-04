@@ -9,6 +9,12 @@
 #include "token.h"
 #include "utils.h"
 
+struct CodeBlock
+{
+  std::vector<Token> statement;
+  std::vector<Token> bodyTokens;
+};
+
 class AST
 {
 private:
@@ -18,12 +24,13 @@ private:
 
   static std::shared_ptr<VariableStatement> evaluateVariableStatement(const std::vector<Token> &statement);
 
-  std::shared_ptr<FunctionStatement> evaluateFunctionStatement(const std::vector<Token> &statement);
+  std::shared_ptr<FunctionStatement> evaluateFunctionStatement(const CodeBlock &functionBlock);
 
-  std::shared_ptr<IfStatement> evaluateIfStatement(const std::vector<Token> &statement);
+  std::shared_ptr<IfStatement> evaluateIfStatement(const CodeBlock &ifBlock);
 
-  static std::vector<Token> extractBody(int &i, const std::vector<Token> &tokens,
-                                        std::vector<Token> &currentNodes);
+  std::shared_ptr<LoopStatement> evaluateLoopStatement(const CodeBlock &loopBlock);
+
+  static std::vector<Token> extractBody(int &i, const std::vector<Token> &tokens);
 
   static void incrementToKeyword(int &i, const std::vector<Token> &tokens, std::vector<Token> &currentNodes, TokenType keyword);
 

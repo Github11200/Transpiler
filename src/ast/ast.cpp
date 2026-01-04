@@ -2,21 +2,19 @@
 
 using namespace std;
 
-vector<Token> AST::extractBody(int &i, const vector<Token> &tokens,
-                               vector<Token> &currentNodes)
+vector<Token> AST::extractBody(int &i, const vector<Token> &tokens)
 {
   int depth = 0;
+  vector<Token> currentNodes;
   for (; i < tokens.size(); ++i)
   {
     if (tokens[i].tokenType == TokenType::END && depth == 0)
-    {
-      currentNodes.push_back(tokens[i]);
       break;
-    }
     if (tokens[i].tokenType == TokenType::AS || tokens[i].tokenType == TokenType::THEN || tokens[i].tokenType == TokenType::REPEAT)
       ++depth;
     currentNodes.push_back(tokens[i]);
   }
+
   return currentNodes;
 }
 
@@ -67,6 +65,9 @@ shared_ptr<VariableStatement> AST::evaluateVariableStatement(const vector<Token>
 {
   string identifier = statement[1].tokenString;
 
+  if (statement[3].tokenType == TokenType::POINTER)
+    return make_shared<VariableStatement>(statement[5].tokenString);
+
   vector<Token> expressionTokens;
   for (int i = 3; i < statement.size() - 1; ++i)
     expressionTokens.push_back(statement[i]);
@@ -75,53 +76,47 @@ shared_ptr<VariableStatement> AST::evaluateVariableStatement(const vector<Token>
   return make_shared<VariableStatement>(identifier, expression);
 }
 
-shared_ptr<FunctionStatement> AST::evaluateFunctionStatement(const vector<Token> &statement)
+shared_ptr<FunctionStatement> AST::evaluateFunctionStatement(const CodeBlock &functionBlock)
 {
-  string identifier = statement[1].tokenString;
+  string identifier = functionBlock.statement[1].tokenString;
   vector<string> parameters;
 
-  // This is where the opening curly bracket is
-  int startOfFunctionBody = 3;
-
   // The function has parameters
-  if (statement[2].tokenType == TokenType::WITH)
-  {
-    // int i = 3;
-    // for (; i < statement.size(); ++i)
-    // {
-    //   if (statement[i].tokenType == TokenType::COMMA)
-    //     continue;
-    //   if (statement[i].tokenType == TokenType::AS)
-    //     break;
-    //   parameters.push_back(statement[i].tokenString);
-    // }
-    // startOfFunctionBody = i + 1;
-  }
-  ++startOfFunctionBody;
+  if (functionBlock.statement[2].tokenType == TokenType::WITH)
+    for (int i = 3; functionBlock.statement[i].tokenType != TokenType::AS; ++i)
+      parameters.push_back(functionBlock.statement[i].tokenString);
 
-  vector<Token> functionBodyTokens;
-
-  extractBody(startOfFunctionBody, statement, functionBodyTokens);
-
-  vector<shared_ptr<ASTNode>> functionBody = constructAST(functionBodyTokens).get()->nodes;
+  vector<shared_ptr<ASTNode>> functionBody = constructAST(functionBlock.bodyTokens).get()->nodes;
   return make_shared<FunctionStatement>(identifier, functionBody, parameters);
 }
 
-shared_ptr<IfStatement> AST::evaluateIfStatement(const vector<Token> &statement)
+shared_ptr<IfStatement> AST::evaluateIfStatement(const CodeBlock &ifBlock)
 {
   vector<Token> expressionTokens;
   // We start at i = 1 since we want to ignore the if keyword, it's served it's purpose :)
   int i = 1;
-  for (; statement[i].tokenType != TokenType::THEN; ++i)
-    expressionTokens.push_back(statement[i]);
+  for (; ifBlock.statement[i].tokenType != TokenType::THEN; ++i)
+    expressionTokens.push_back(ifBlock.statement[i]);
+
+  // for (i = 0; i < ifBlock.bodyTokens.size() && ifBlock.bodyTokens[i])
 
   variant<BinaryExpression, IntegerLiteral> evaluatedExpression = evaluateExpression(expressionTokens);
-  vector<Token> ifStatementBodyTokens;
+  vector<shared_ptr<ASTNode>> ifStatementBody = constructAST(ifBlock.bodyTokens).get()->nodes;
 
-  extractBody(++i, statement, ifStatementBodyTokens);
+  // return make_shared<IfStatement>(evaluatedExpression, ifStatementBody);
+}
 
-  vector<shared_ptr<ASTNode>> ifStatementBody = constructAST(ifStatementBodyTokens).get()->nodes;
-  return make_shared<IfStatement>(evaluatedExpression, ifStatementBody);
+shared_ptr<LoopStatement> AST::evaluateLoopStatement(const CodeBlock &loopBlock)
+{
+  // Loop from after the for keyword to before the repeat keyword
+  vector<Token> expressionTokens;
+  for (int i = 1; i < loopBlock.statement.size() - 1; ++i)
+    expressionTokens.push_back(loopBlock.statement[i]);
+
+  BinaryExpression evaluatedExpression = get<BinaryExpression>(evaluateExpression(expressionTokens));
+  vector<shared_ptr<ASTNode>> loopStatementBody = constructAST(loopBlock.bodyTokens).get()->nodes;
+
+  return make_shared<LoopStatement>(evaluatedExpression, loopStatementBody);
 }
 
 shared_ptr<Root> AST::constructAST(const vector<Token> &tokens)
@@ -141,16 +136,17 @@ shared_ptr<Root> AST::constructAST(const vector<Token> &tokens)
     else if (tokens[i].tokenType == TokenType::IF)
     {
       incrementToKeyword(++i, tokens, currentNodes, TokenType::THEN);
-      extractBody(i, tokens, currentNodes);
-
-      newNode = evaluateIfStatement(currentNodes);
+      newNode = evaluateIfStatement({.statement = currentNodes, .bodyTokens = extractBody(i, tokens)});
     }
     else if (tokens[i].tokenType == TokenType::DEFINE)
     {
       incrementToKeyword(++i, tokens, currentNodes, TokenType::AS);
-      extractBody(i, tokens, currentNodes);
-
-      newNode = evaluateFunctionStatement(currentNodes);
+      newNode = evaluateFunctionStatement({.statement = currentNodes, .bodyTokens = extractBody(i, tokens)});
+    }
+    else if (tokens[i].tokenType == TokenType::FOR)
+    {
+      incrementToKeyword(++i, tokens, currentNodes, TokenType::REPEAT);
+      newNode = evaluateLoopStatement({.statement = currentNodes, .bodyTokens = extractBody(i, tokens)});
     }
 
     if (newNode != nullptr)

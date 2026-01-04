@@ -2,14 +2,15 @@
 
 using namespace std;
 
-void Root::readValue()
+string Root::generateCode()
 {
-  cout << "hi" << endl;
+  cout << "Root" << endl;
+  return "Generating...";
 }
 
-void IntegerLiteral::readValue()
+string IntegerLiteral::generateCode()
 {
-  cout << value;
+  return to_string(this->value);
 }
 
 BinaryExpression::BinaryExpression(const TokenType operatorType, variant<BinaryExpression, IntegerLiteral> left,
@@ -33,43 +34,50 @@ BinaryExpression::BinaryExpression(const TokenType operatorType, variant<BinaryE
             this->right = make_shared<IntegerLiteral>(var); }, right);
 }
 
-void BinaryExpression::readValue()
+string BinaryExpression::generateCode()
 {
+  string outputCode;
   if (holds_alternative<shared_ptr<IntegerLiteral>>(left))
-    get<shared_ptr<IntegerLiteral>>(left)->readValue();
+    outputCode += get<shared_ptr<IntegerLiteral>>(left)->generateCode();
   else if (holds_alternative<shared_ptr<BinaryExpression>>(left))
-    get<shared_ptr<BinaryExpression>>(left)->readValue();
+    outputCode += get<shared_ptr<BinaryExpression>>(left)->generateCode();
 
   switch (operatorType)
   {
   case TokenType::PLUS:
     cout << " + ";
+    outputCode += " + ";
     break;
   case TokenType::MINUS:
     cout << " - ";
+    outputCode += " - ";
     break;
   case TokenType::TIMES:
     cout << " * ";
+    outputCode += " * ";
     break;
   case TokenType::DIVIDE:
     cout << " / ";
+    outputCode += " / ";
     break;
-
   default:
     break;
   }
 
   if (holds_alternative<shared_ptr<IntegerLiteral>>(right))
-    get<shared_ptr<IntegerLiteral>>(right)
-        ->readValue();
+    outputCode += get<shared_ptr<IntegerLiteral>>(right)
+                      ->generateCode();
   else if (holds_alternative<shared_ptr<BinaryExpression>>(right))
-    get<shared_ptr<BinaryExpression>>(right)
-        ->readValue();
+    outputCode += get<shared_ptr<BinaryExpression>>(right)
+                      ->generateCode();
+
+  return outputCode;
 }
 
 VariableStatement::VariableStatement(const string &identifier,
                                      variant<BinaryExpression, IntegerLiteral> value)
 {
+  this->isPointer = false;
   this->identifier = identifier;
   visit([&]<typename T>(const T &var)
         {
@@ -79,14 +87,24 @@ VariableStatement::VariableStatement(const string &identifier,
             this->value = make_shared<IntegerLiteral>(var); }, value);
 }
 
-void VariableStatement::readValue()
+VariableStatement::VariableStatement(const string &pointerIdentifier)
 {
-  cout << this->identifier << ": ";
+  this->isPointer = true;
+  this->pointerIdentifier = pointerIdentifier;
+}
+
+string VariableStatement::generateCode()
+{
+  string outputCode = "auto ";
+  outputCode += this->identifier + " = ";
   if (holds_alternative<shared_ptr<IntegerLiteral>>(value))
-    get<shared_ptr<IntegerLiteral>>(value)->readValue();
+    outputCode += get<shared_ptr<IntegerLiteral>>(value)->generateCode();
   else if (holds_alternative<shared_ptr<BinaryExpression>>(value))
-    get<shared_ptr<BinaryExpression>>(value)->readValue();
-  cout << endl;
+    outputCode += get<shared_ptr<BinaryExpression>>(value)->generateCode();
+
+  outputCode += ";";
+
+  return outputCode;
 }
 
 FunctionStatement::FunctionStatement(const string &identifier, const vector<shared_ptr<ASTNode>> &body,
@@ -98,13 +116,19 @@ FunctionStatement::FunctionStatement(const string &identifier, const vector<shar
   this->body = body;
 }
 
-void FunctionStatement::readValue()
+string FunctionStatement::generateCode()
 {
+  string outputCode = "auto ";
+  outputCode += this->identifier + "(";
+  for (const auto parameter : parameters)
+    outputCode += "auto " + parameter + ",";
+  outputCode += ") {";
   for (const auto &node : body)
-    node.get()->readValue();
+    outputCode += node.get()->generateCode();
+  return outputCode;
 }
 
-IfStatement::IfStatement(const variant<BinaryExpression, IntegerLiteral> condition, const vector<std::shared_ptr<ASTNode>> &body)
+IfStatementBlock::IfStatementBlock(const variant<BinaryExpression, IntegerLiteral> condition, const vector<shared_ptr<ASTNode>> &body)
 {
   visit([&]<typename T>(const T &var)
         {
@@ -115,11 +139,36 @@ IfStatement::IfStatement(const variant<BinaryExpression, IntegerLiteral> conditi
   this->body = body;
 }
 
-void IfStatement::readValue()
+IfStatement::IfStatement(const std::vector<IfStatementBlock> &ifStatementBlocks)
 {
-  if (holds_alternative<shared_ptr<BinaryExpression>>(condition))
-    get<shared_ptr<BinaryExpression>>(condition)->readValue();
-  cout << endl;
-  for (const auto &bodyStatement : body)
-    bodyStatement->readValue();
+  this->ifStatementBlocks = ifStatementBlocks;
+}
+
+string IfStatement::generateCode()
+{
+  string outputCode = "if (";
+  for (auto ifStatementBlock : ifStatementBlocks)
+  {
+    if (holds_alternative<shared_ptr<BinaryExpression>>(ifStatementBlock.condition))
+      outputCode += get<shared_ptr<BinaryExpression>>(ifStatementBlock.condition)->generateCode();
+    outputCode += ") {";
+    for (const auto &bodyStatement : ifStatementBlock.body)
+      outputCode += bodyStatement->generateCode();
+    outputCode += "}";
+  }
+  return outputCode;
+}
+
+LoopStatement::LoopStatement(const BinaryExpression condition, const std::vector<std::shared_ptr<ASTNode>> &body)
+{
+  this->condition = make_shared<BinaryExpression>(condition);
+  this->body = body;
+}
+
+string LoopStatement::generateCode()
+{
+  // TODO: Implement code generation
+  string outputCode = "for";
+  this->condition->generateCode();
+  return outputCode;
 }

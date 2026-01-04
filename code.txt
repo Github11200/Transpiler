@@ -1,11 +1,2 @@
-let a be 3 stop
-let x be 1 plus 3 plus 5 stop
-let y be 1010 stop
-
-if 2 plus 3 then
-  let z be 6 stop
-end
-
-define doSomething as
-  let a be 20 stop
-end
+let a be 5 plus 6 stop
+let b be 10 stop

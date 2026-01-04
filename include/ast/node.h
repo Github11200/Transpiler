@@ -11,26 +11,25 @@
 struct ASTNode
 {
   virtual ~ASTNode() = default;
-
-  virtual void readValue() = 0;
+  virtual std::string generateCode() = 0;
 };
 
 struct Root final : ASTNode
 {
   std::vector<std::shared_ptr<ASTNode>> nodes;
 
-  void readValue() override;
+  std::string generateCode() override;
 };
 
 struct IntegerLiteral final : ASTNode
 {
   int value;
 
-  explicit IntegerLiteral(const int value) : value(value)
+  IntegerLiteral(const int value) : value(value)
   {
   }
 
-  void readValue() override;
+  std::string generateCode() override;
 };
 
 struct BinaryExpression final : ASTNode
@@ -44,17 +43,21 @@ struct BinaryExpression final : ASTNode
                                 IntegerLiteral>
                        right);
 
-  void readValue() override;
+  std::string generateCode() override;
 };
 
 struct VariableStatement final : ASTNode
 {
+  bool isPointer;
+  std::optional<std::string> pointerIdentifier;
+
   std::string identifier;
   std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>> value;
 
+  VariableStatement(const std::string &pointerIdentifier);
   VariableStatement(const std::string &identifier, std::variant<BinaryExpression, IntegerLiteral> value);
 
-  void readValue() override;
+  std::string generateCode() override;
 };
 
 struct FunctionStatement final : ASTNode
@@ -66,17 +69,34 @@ struct FunctionStatement final : ASTNode
   FunctionStatement(const std::string &identifier, const std::vector<std::shared_ptr<ASTNode>> &body,
                     const std::vector<std::string> &parameters);
 
-  void readValue() override;
+  std::string generateCode() override;
 };
 
-struct IfStatement final : ASTNode
+struct IfStatementBlock
 {
   std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>> condition;
   std::vector<std::shared_ptr<ASTNode>> body;
 
-  IfStatement(const std::variant<BinaryExpression, IntegerLiteral> condition, const std::vector<std::shared_ptr<ASTNode>> &body);
+  IfStatementBlock(const std::variant<BinaryExpression, IntegerLiteral> condition, const std::vector<std::shared_ptr<ASTNode>> &body);
+};
 
-  void readValue() override;
+struct IfStatement final : ASTNode
+{
+  std::vector<IfStatementBlock> ifStatementBlocks;
+
+  IfStatement(const std::vector<IfStatementBlock> &ifStatementBlocks);
+
+  std::string generateCode() override;
+};
+
+struct LoopStatement final : ASTNode
+{
+  std::shared_ptr<BinaryExpression> condition;
+  std::vector<std::shared_ptr<ASTNode>> body;
+
+  LoopStatement(const BinaryExpression condition, const std::vector<std::shared_ptr<ASTNode>> &body);
+
+  std::string generateCode() override;
 };
 
 #endif
