@@ -4,7 +4,6 @@ using namespace std;
 
 string Root::generateCode()
 {
-  cout << "Root" << endl;
   return "Generating...";
 }
 
@@ -45,19 +44,15 @@ string BinaryExpression::generateCode()
   switch (operatorType)
   {
   case TokenType::PLUS:
-    cout << " + ";
     outputCode += " + ";
     break;
   case TokenType::MINUS:
-    cout << " - ";
     outputCode += " - ";
     break;
   case TokenType::TIMES:
-    cout << " * ";
     outputCode += " * ";
     break;
   case TokenType::DIVIDE:
-    cout << " / ";
     outputCode += " / ";
     break;
   default:
@@ -125,6 +120,7 @@ string FunctionStatement::generateCode()
   outputCode += ") {";
   for (const auto &node : body)
     outputCode += node.get()->generateCode();
+  outputCode += "}";
   return outputCode;
 }
 

@@ -2,16 +2,25 @@
 
 using namespace std;
 
-vector<Token> AST::extractBody(int &i, const vector<Token> &tokens)
+bool AST::keywordIsStartOfNewCodeBlock(TokenType keyword)
+{
+  if (keyword == TokenType::AS || keyword == TokenType::THEN || keyword == TokenType::REPEAT)
+    return true;
+  return false;
+}
+
+vector<Token> AST::extractBody(int &i, const vector<Token> &tokens, TokenType keyword)
 {
   int depth = 0;
   vector<Token> currentNodes;
   for (; i < tokens.size(); ++i)
   {
-    if (tokens[i].tokenType == TokenType::END && depth == 0)
+    if (tokens[i].tokenType == keyword && depth == 0)
       break;
-    if (tokens[i].tokenType == TokenType::AS || tokens[i].tokenType == TokenType::THEN || tokens[i].tokenType == TokenType::REPEAT)
+    if (keywordIsStartOfNewCodeBlock(tokens[i].tokenType))
       ++depth;
+    if (tokens[i].tokenType == TokenType::END)
+      --depth;
     currentNodes.push_back(tokens[i]);
   }
 
@@ -98,12 +107,38 @@ shared_ptr<IfStatement> AST::evaluateIfStatement(const CodeBlock &ifBlock)
   for (; ifBlock.statement[i].tokenType != TokenType::THEN; ++i)
     expressionTokens.push_back(ifBlock.statement[i]);
 
-  // for (i = 0; i < ifBlock.bodyTokens.size() && ifBlock.bodyTokens[i])
+  int numberOfOtherwiseKeywords = 0;
+  int depth = 0;
+  int i = 0;
+  vector<Token> blockBodyTokens;
+  for (; i < ifBlock.bodyTokens.size(); ++i)
+  {
+    if (ifBlock.bodyTokens[i].tokenType == TokenType::OTHERWISE && depth == 0)
+      ++numberOfOtherwiseKeywords;
+    else if (keywordIsStartOfNewCodeBlock(ifBlock.bodyTokens[i].tokenType))
+      ++depth;
+    else if (ifBlock.bodyTokens[i].tokenType == TokenType::END)
+      --depth;
+  }
 
-  variant<BinaryExpression, IntegerLiteral> evaluatedExpression = evaluateExpression(expressionTokens);
-  vector<shared_ptr<ASTNode>> ifStatementBody = constructAST(ifBlock.bodyTokens).get()->nodes;
+  vector<IfStatementBlock> ifStatementBlocks;
 
-  // return make_shared<IfStatement>(evaluatedExpression, ifStatementBody);
+  for (int j = 0; j < numberOfOtherwiseKeywords; ++j)
+  {
+    vector<Token> currentBlockTokens;
+    vector<Token> currentBlockStatement;
+    int k = 0;
+
+    // Check to make sure this isn't the last otherwise statement
+    if (j + 1 < numberOfOtherwiseKeywords)
+    {
+    }
+
+    extractBody(k, currentBlockTokens, TokenType::OTHERWISE);
+    variant<BinaryExpression, IntegerLiteral> evaluatedExpression = evaluateExpression(ifBlock.statement);
+  }
+
+  return make_shared<IfStatement>(ifStatementBlocks);
 }
 
 shared_ptr<LoopStatement> AST::evaluateLoopStatement(const CodeBlock &loopBlock)

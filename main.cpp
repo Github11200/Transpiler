@@ -32,7 +32,7 @@ int main()
   shared_ptr<Root> rootNode = ast.constructAST(tokens);
   CodeGenerator codeGenerator(rootNode);
 
-  codeGenerator.generate("../compiled.cpp");
+  codeGenerator.generate("compiled.cpp");
   file.close();
 
   return 0;

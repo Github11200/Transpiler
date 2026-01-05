@@ -20,6 +20,8 @@ class AST
 private:
   std::vector<std::set<std::string>> scopes; // Stores the identifiers
 
+  static bool keywordIsStartOfNewCodeBlock(TokenType keyword);
+
   static std::variant<BinaryExpression, IntegerLiteral> evaluateExpression(const std::vector<Token> &statement);
 
   static std::shared_ptr<VariableStatement> evaluateVariableStatement(const std::vector<Token> &statement);
@@ -30,7 +32,7 @@ private:
 
   std::shared_ptr<LoopStatement> evaluateLoopStatement(const CodeBlock &loopBlock);
 
-  static std::vector<Token> extractBody(int &i, const std::vector<Token> &tokens);
+  static std::vector<Token> extractBody(int &i, const std::vector<Token> &tokens, TokenType keyword = TokenType::END);
 
   static void incrementToKeyword(int &i, const std::vector<Token> &tokens, std::vector<Token> &currentNodes, TokenType keyword);
 
