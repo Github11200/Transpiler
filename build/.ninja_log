@@ -1,8 +1,8 @@
 # ninja log v5
-0	57	1767587581983954011	build.ninja	485896ccd961be54
+0	57	1769099885157893286	build.ninja	485896ccd961be54
 1	368	1767559430470751171	CMakeFiles/Transpiler.dir/src/token.cpp.o	5638a3bc6493ac35
 2	1176	1767559431281071809	CMakeFiles/Transpiler.dir/src/utils.cpp.o	6d80f2ab078881f0
-0	57	1767587581983954011	/home/user/code/projects/Compiler/build/cmake_install.cmake	485896ccd961be54
+0	57	1769099885157893286	/home/user/code/projects/Compiler/build/cmake_install.cmake	485896ccd961be54
 1	1216	1767559431321404511	CMakeFiles/Transpiler.dir/src/lexer.cpp.o	1d8ccef515aea326
 1	1976	1767585499024623136	CMakeFiles/Transpiler.dir/src/ast/ast.cpp.o	d8a4f577ee428a4d
 1	1357	1767585515373607932	CMakeFiles/Transpiler.dir/main.cpp.o	b3f7f3b38d52e789
