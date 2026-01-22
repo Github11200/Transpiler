@@ -124,14 +124,19 @@ string FunctionStatement::generateCode()
   return outputCode;
 }
 
-IfStatementBlock::IfStatementBlock(const variant<BinaryExpression, IntegerLiteral> condition, const vector<shared_ptr<ASTNode>> &body)
+IfStatementBlock::IfStatementBlock(const optional<variant<BinaryExpression, IntegerLiteral>> condition, const vector<shared_ptr<ASTNode>> &body)
 {
-  visit([&]<typename T>(const T &var)
-        {
+  if (condition.has_value())
+  {
+    visit([&]<typename T>(const T &var)
+          {
         if constexpr (is_same_v<decay_t<T>, BinaryExpression>)
             this->condition = make_shared<BinaryExpression>(var);
         if constexpr (is_same_v<decay_t<T>, IntegerLiteral>)
-            this->condition = make_shared<IntegerLiteral>(var); }, condition);
+            this->condition = make_shared<IntegerLiteral>(var); }, condition.value());
+  }
+  else
+    this->condition = nullopt;
   this->body = body;
 }
 
@@ -145,8 +150,10 @@ string IfStatement::generateCode()
   string outputCode = "if (";
   for (auto ifStatementBlock : ifStatementBlocks)
   {
-    if (holds_alternative<shared_ptr<BinaryExpression>>(ifStatementBlock.condition))
-      outputCode += get<shared_ptr<BinaryExpression>>(ifStatementBlock.condition)->generateCode();
+    if (!ifStatementBlock.condition.has_value())
+      outputCode += "else";
+    if (holds_alternative<shared_ptr<BinaryExpression>>(ifStatementBlock.condition.value()))
+      outputCode += get<shared_ptr<BinaryExpression>>(ifStatementBlock.condition.value())->generateCode();
     outputCode += ") {";
     for (const auto &bodyStatement : ifStatementBlock.body)
       outputCode += bodyStatement->generateCode();

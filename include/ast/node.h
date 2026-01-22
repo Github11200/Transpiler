@@ -74,10 +74,10 @@ struct FunctionStatement final : ASTNode
 
 struct IfStatementBlock
 {
-  std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>> condition;
+  std::optional<std::variant<std::shared_ptr<BinaryExpression>, std::shared_ptr<IntegerLiteral>>> condition;
   std::vector<std::shared_ptr<ASTNode>> body;
 
-  IfStatementBlock(const std::variant<BinaryExpression, IntegerLiteral> condition, const std::vector<std::shared_ptr<ASTNode>> &body);
+  IfStatementBlock(const std::optional<std::variant<BinaryExpression, IntegerLiteral>> condition, const std::vector<std::shared_ptr<ASTNode>> &body);
 };
 
 struct IfStatement final : ASTNode

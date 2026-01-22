@@ -99,43 +99,58 @@ shared_ptr<FunctionStatement> AST::evaluateFunctionStatement(const CodeBlock &fu
   return make_shared<FunctionStatement>(identifier, functionBody, parameters);
 }
 
-shared_ptr<IfStatement> AST::evaluateIfStatement(const CodeBlock &ifBlock)
-{
-  vector<Token> expressionTokens;
-  // We start at i = 1 since we want to ignore the if keyword, it's served it's purpose :)
-  int i = 1;
-  for (; ifBlock.statement[i].tokenType != TokenType::THEN; ++i)
-    expressionTokens.push_back(ifBlock.statement[i]);
+// Figure out how many blocks there are
+// Loop through each block's statement
 
-  int numberOfOtherwiseKeywords = 0;
+shared_ptr<IfStatement> AST::evaluateIfStatement(const vector<Token> &body)
+{
+  // Loop through the body to find any other code blocks (from else if statements)
+  int numberOfBlocks = 1;
   int depth = 0;
   int i = 0;
-  vector<Token> blockBodyTokens;
-  for (; i < ifBlock.bodyTokens.size(); ++i)
+  for (; i < body.size(); ++i)
   {
-    if (ifBlock.bodyTokens[i].tokenType == TokenType::OTHERWISE && depth == 0)
-      ++numberOfOtherwiseKeywords;
-    else if (keywordIsStartOfNewCodeBlock(ifBlock.bodyTokens[i].tokenType))
+    if (body[i].tokenType == TokenType::OTHERWISE && depth == 0)
+      ++numberOfBlocks;
+    else if (keywordIsStartOfNewCodeBlock(body[i].tokenType))
       ++depth;
-    else if (ifBlock.bodyTokens[i].tokenType == TokenType::END)
+    else if (body[i].tokenType == TokenType::END)
       --depth;
   }
 
   vector<IfStatementBlock> ifStatementBlocks;
 
-  for (int j = 0; j < numberOfOtherwiseKeywords; ++j)
+  // Add one to otherwise keywords as we want to include the first statement as well
+  int k = 0;
+  for (int j = 0; j < numberOfBlocks; ++j)
   {
     vector<Token> currentBlockTokens;
     vector<Token> currentBlockStatement;
-    int k = 0;
+    bool isLastElseBlock = j + 1 < numberOfBlocks && numberOfBlocks > 1;
 
-    // Check to make sure this isn't the last otherwise statement
-    if (j + 1 < numberOfOtherwiseKeywords)
-    {
-    }
+    int expressionStartIndex = 0;
+    if (j == 0) // This is the first block with just an if keyword, so start at index 1
+      expressionStartIndex = 1;
+    else if (isLastElseBlock)
+      expressionStartIndex = -1;
+    else // This is the "otherwise if" block so start at index 2
+      expressionStartIndex = 2;
 
-    extractBody(k, currentBlockTokens, TokenType::OTHERWISE);
-    variant<BinaryExpression, IntegerLiteral> evaluatedExpression = evaluateExpression(ifBlock.statement);
+    k += expressionStartIndex;
+    if (expressionStartIndex != -1)
+      for (; k < body.size(); ++k)
+        currentBlockStatement.push_back(body[k]);
+
+    if (isLastElseBlock || numberOfBlocks == 1)
+      extractBody(k, body, TokenType::END);
+    else
+      extractBody(k, body, TokenType::OTHERWISE);
+
+    // Check to make sure this isn't the last otherwise statement since it has no condition
+    vector<shared_ptr<ASTNode>> bodyTokensAST = constructAST(currentBlockTokens).get()->nodes;
+    IfStatementBlock newBlock(nul, constructAST(currentBlockTokens).get()->nodes);
+
+    ifStatementBlocks.push_back(newBlock);
   }
 
   return make_shared<IfStatement>(ifStatementBlocks);
@@ -171,7 +186,7 @@ shared_ptr<Root> AST::constructAST(const vector<Token> &tokens)
     else if (tokens[i].tokenType == TokenType::IF)
     {
       incrementToKeyword(++i, tokens, currentNodes, TokenType::THEN);
-      newNode = evaluateIfStatement({.statement = currentNodes, .bodyTokens = extractBody(i, tokens)});
+      newNode = evaluateIfStatement(extractBody(i, tokens));
     }
     else if (tokens[i].tokenType == TokenType::DEFINE)
     {

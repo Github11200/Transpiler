@@ -28,7 +28,7 @@ private:
 
   std::shared_ptr<FunctionStatement> evaluateFunctionStatement(const CodeBlock &functionBlock);
 
-  std::shared_ptr<IfStatement> evaluateIfStatement(const CodeBlock &ifBlock);
+  std::shared_ptr<IfStatement> evaluateIfStatement(const std::vector<Token> &body);
 
   std::shared_ptr<LoopStatement> evaluateLoopStatement(const CodeBlock &loopBlock);
 
