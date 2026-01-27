@@ -2,22 +2,146 @@
 ---
 events:
   -
-    kind: "message-v1"
+    kind: "find-v1"
     backtrace:
-      - "/usr/local/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
       - "CMakeLists.txt:2 (project)"
-    message: |
-      The system is: Linux - 6.6.87.2-microsoft-standard-WSL2 - x86_64
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/bin/"
+    searched_directories:
+      - "/home/arch/.deno/bin/uname"
+      - "/usr/local/sbin/uname"
+      - "/usr/local/bin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/local/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "/usr/local/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/local/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Linux - 6.18.6-arch1-1 - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeNinjaFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Program used to build from build.ninja files."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ninja-build"
+      - "ninja"
+      - "samu"
+    candidate_directories:
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    searched_directories:
+      - "/home/arch/.deno/bin/ninja-build"
+      - "/home/arch/.deno/bin/ninja"
+      - "/home/arch/.deno/bin/samu"
+      - "/usr/local/sbin/ninja-build"
+      - "/usr/local/sbin/ninja"
+      - "/usr/local/sbin/samu"
+      - "/usr/local/bin/ninja-build"
+      - "/usr/local/bin/ninja"
+      - "/usr/local/bin/samu"
+      - "/usr/bin/ninja-build"
+    found: "/usr/bin/ninja"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/usr/share/cmake/Modules/"
+    found: "/usr/share/cmake/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-      Compiler: /home/linuxbrew/.linuxbrew/bin/g++-15 
+      Compiler: /usr/bin/g++ 
       Build flags: 
       Id flags:  
       
@@ -28,19 +152,566 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is GNU, found in:
-        /home/user/code/projects/Compiler/build/CMakeFiles/4.0.3/CompilerIdCXX/a.out
+        /home/arch/code/projects/Compiler/build/CMakeFiles/4.2.2/CompilerIdCXX/a.out
       
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/strip"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/ld"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/nm"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/objdump"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/objcopy"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/readelf"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    searched_directories:
+      - "/usr/bin/dlltool"
+      - "/home/arch/.deno/bin/dlltool"
+      - "/usr/local/sbin/dlltool"
+      - "/usr/local/bin/dlltool"
+      - "/usr/bin/site_perl/dlltool"
+      - "/usr/bin/vendor_perl/dlltool"
+      - "/usr/bin/core_perl/dlltool"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    found: "/usr/bin/addr2line"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    searched_directories:
+      - "/usr/bin/tapi"
+      - "/home/arch/.deno/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/usr/bin/site_perl/tapi"
+      - "/usr/bin/vendor_perl/tapi"
+      - "/usr/bin/core_perl/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-15.2"
+      - "gcc-ar-15"
+      - "gcc-ar15"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-15.2"
+      - "/home/arch/.deno/bin/gcc-ar-15.2"
+      - "/usr/local/sbin/gcc-ar-15.2"
+      - "/usr/local/bin/gcc-ar-15.2"
+      - "/usr/bin/site_perl/gcc-ar-15.2"
+      - "/usr/bin/vendor_perl/gcc-ar-15.2"
+      - "/usr/bin/core_perl/gcc-ar-15.2"
+      - "/usr/bin/gcc-ar-15"
+      - "/home/arch/.deno/bin/gcc-ar-15"
+      - "/usr/local/sbin/gcc-ar-15"
+      - "/usr/local/bin/gcc-ar-15"
+      - "/usr/bin/site_perl/gcc-ar-15"
+      - "/usr/bin/vendor_perl/gcc-ar-15"
+      - "/usr/bin/core_perl/gcc-ar-15"
+      - "/usr/bin/gcc-ar15"
+      - "/home/arch/.deno/bin/gcc-ar15"
+      - "/usr/local/sbin/gcc-ar15"
+      - "/usr/local/bin/gcc-ar15"
+      - "/usr/bin/site_perl/gcc-ar15"
+      - "/usr/bin/vendor_perl/gcc-ar15"
+      - "/usr/bin/core_perl/gcc-ar15"
+    found: "/usr/bin/gcc-ar"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-15.2"
+      - "gcc-ranlib-15"
+      - "gcc-ranlib15"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/home/arch/.deno/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-15.2"
+      - "/home/arch/.deno/bin/gcc-ranlib-15.2"
+      - "/usr/local/sbin/gcc-ranlib-15.2"
+      - "/usr/local/bin/gcc-ranlib-15.2"
+      - "/usr/bin/site_perl/gcc-ranlib-15.2"
+      - "/usr/bin/vendor_perl/gcc-ranlib-15.2"
+      - "/usr/bin/core_perl/gcc-ranlib-15.2"
+      - "/usr/bin/gcc-ranlib-15"
+      - "/home/arch/.deno/bin/gcc-ranlib-15"
+      - "/usr/local/sbin/gcc-ranlib-15"
+      - "/usr/local/bin/gcc-ranlib-15"
+      - "/usr/bin/site_perl/gcc-ranlib-15"
+      - "/usr/bin/vendor_perl/gcc-ranlib-15"
+      - "/usr/bin/core_perl/gcc-ranlib-15"
+      - "/usr/bin/gcc-ranlib15"
+      - "/home/arch/.deno/bin/gcc-ranlib15"
+      - "/usr/local/sbin/gcc-ranlib15"
+      - "/usr/local/bin/gcc-ranlib15"
+      - "/usr/bin/site_perl/gcc-ranlib15"
+      - "/usr/bin/vendor_perl/gcc-ranlib15"
+      - "/usr/bin/core_perl/gcc-ranlib15"
+    found: "/usr/bin/gcc-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/home/arch/.deno/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
   -
     kind: "try_compile-v1"
     backtrace:
-      - "/usr/local/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
-      - "/usr/local/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/user/code/projects/Compiler/build/CMakeFiles/CMakeScratch/TryCompile-CkufPD"
-      binary: "/home/user/code/projects/Compiler/build/CMakeFiles/CMakeScratch/TryCompile-CkufPD"
+      source: "/home/arch/code/projects/Compiler/build/CMakeFiles/CMakeScratch/TryCompile-wq27c9"
+      binary: "/home/arch/code/projects/Compiler/build/CMakeFiles/CMakeScratch/TryCompile-wq27c9"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -50,258 +721,214 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/user/code/projects/Compiler/build/CMakeFiles/CMakeScratch/TryCompile-CkufPD'
+        Change Dir: '/home/arch/code/projects/Compiler/build/CMakeFiles/CMakeScratch/TryCompile-wq27c9'
         
-        Run Build Command(s): /usr/bin/ninja -v cmTC_282aa
-        [1/2] /home/linuxbrew/.linuxbrew/bin/g++-15   -v -o CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp
-        Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/specs
-        COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/g++-15
+        Run Build Command(s): /usr/bin/ninja -v cmTC_e01fe
+        [1/2] /usr/bin/g++   -v -o CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/g++
         Target: x86_64-pc-linux-gnu
-        Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-15 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 15.2.0' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --disable-multilib --enable-default-pie
+        Configured with: /build/gcc/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
-        gcc version 15.2.0 (Homebrew GCC 15.2.0) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_282aa.dir/'
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -iprefix /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/ -D_GNU_SOURCE /usr/local/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp -isysroot /home/linuxbrew/.linuxbrew/nonexistent -idirafter /home/linuxbrew/.linuxbrew/include -idirafter /usr/include/x86_64-linux-gnu -idirafter /usr/include -quiet -dumpdir CMakeFiles/cmTC_282aa.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccAHuq0p.s
-        GNU C++17 (Homebrew GCC 15.2.0) version 15.2.0 (x86_64-pc-linux-gnu)
-        	compiled by GNU C version 15.2.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
+        gcc version 15.2.1 20260103 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e01fe.dir/'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_e01fe.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccNVnftT.s
+        GNU C++17 (GCC) version 15.2.1 20260103 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 15.2.1 20260103, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../x86_64-pc-linux-gnu/include"
-        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15"
-        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/x86_64-pc-linux-gnu"
-        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/backward"
-        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include"
-        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include/x86_64-linux-gnu"
-        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include"
-        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed/x86_64-linux-gnu"
-        ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed"
-        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../x86_64-pc-linux-gnu/include"
-        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include/x86_64-linux-gnu"
-        ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"
         #include "..." search starts here:
         #include <...> search starts here:
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/x86_64-pc-linux-gnu
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/backward
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed/x86_64-linux-gnu
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../include
-         /home/linuxbrew/.linuxbrew/include
-         /usr/include/x86_64-linux-gnu
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include
+         /usr/local/include
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed
          /usr/include
         End of search list.
-        Compiler executable checksum: 5a2ca6a3870b06bd739336104db599ea
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_282aa.dir/'
-         as -v --64 -o CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccAHuq0p.s
-        GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
-        COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/
-        LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../:/lib/x86_64-linux-gnu/:/lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.'
-        [2/2] : && /home/linuxbrew/.linuxbrew/bin/g++-15  -v -Wl,-v CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_282aa   && :
-        Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/specs
-        COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/g++-15
-        COLLECT_LTO_WRAPPER=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/lto-wrapper
+        Compiler executable checksum: 26247f000d0c5f9b837c76e00a033f94
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e01fe.dir/'
+         as -v --64 -o CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccNVnftT.s
+        GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.'
+        [2/2] : && /usr/bin/g++  -v -Wl,-v CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_e01fe   && :
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/g++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper
         Target: x86_64-pc-linux-gnu
-        Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c,c++,objc,obj-c++,fortran,m2 --program-suffix=-15 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 15.2.0' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --disable-multilib --enable-default-pie
+        Configured with: /build/gcc/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
-        gcc version 15.2.0 (Homebrew GCC 15.2.0) 
-        COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/
-        LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../:/lib/x86_64-linux-gnu/:/lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_282aa' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_282aa.'
-         /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOUa7Db.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_282aa /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../.. -L/lib/x86_64-linux-gnu -L/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -rpath /home/linuxbrew/.linuxbrew/lib -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o
-        collect2 version 15.2.0
-        /usr/bin/ld -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOUa7Db.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_282aa /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../.. -L/lib/x86_64-linux-gnu -L/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -rpath /home/linuxbrew/.linuxbrew/lib -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o
-        GNU ld (GNU Binutils for Ubuntu) 2.38
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_282aa' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_282aa.'
+        gcc version 15.2.1 20260103 (GCC) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e01fe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_e01fe.'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccORX7kH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_e01fe /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
+        collect2 version 15.2.1 20260103
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccORX7kH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_e01fe /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
+        GNU ld (GNU Binutils) 2.45.1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e01fe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_e01fe.'
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/local/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:191 (message)"
-      - "/usr/local/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
-          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15]
-          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/x86_64-pc-linux-gnu]
-          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/backward]
-          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include]
-          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed/x86_64-linux-gnu]
-          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed]
-          add: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../include]
-          add: [/home/linuxbrew/.linuxbrew/include]
-          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include]
+          add: [/usr/local/include]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed]
           add: [/usr/include]
         end of search list found
-        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/include/c++/15]
-        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/x86_64-pc-linux-gnu] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/include/c++/15/x86_64-pc-linux-gnu]
-        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/backward] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/include/c++/15/backward]
-        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include]
-        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed/x86_64-linux-gnu] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed/x86_64-linux-gnu]
-        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed]
-        collapse include dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../include] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/include]
-        collapse include dir [/home/linuxbrew/.linuxbrew/include] ==> [/home/linuxbrew/.linuxbrew/include]
-        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1] ==> [/usr/include/c++/15.2.1]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu] ==> [/usr/include/c++/15.2.1/x86_64-pc-linux-gnu]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward] ==> [/usr/include/c++/15.2.1/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed]
         collapse include dir [/usr/include] ==> [/usr/include]
-        implicit include dirs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/include/c++/15;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/include/c++/15/x86_64-pc-linux-gnu;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/include/c++/15/backward;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed/x86_64-linux-gnu;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/include;/home/linuxbrew/.linuxbrew/include;/usr/include/x86_64-linux-gnu;/usr/include]
+        implicit include dirs: [/usr/include/c++/15.2.1;/usr/include/c++/15.2.1/x86_64-pc-linux-gnu;/usr/include/c++/15.2.1/backward;/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include;/usr/local/include;/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed;/usr/include]
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/local/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
-      - "/usr/local/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/home/user/code/projects/Compiler/build/CMakeFiles/CMakeScratch/TryCompile-CkufPD']
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/home/arch/code/projects/Compiler/build/CMakeFiles/CMakeScratch/TryCompile-wq27c9']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_282aa]
-        ignore line: [[1/2] /home/linuxbrew/.linuxbrew/bin/g++-15   -v -o CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp]
-        ignore line: [Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/specs]
-        ignore line: [COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/g++-15]
+        ignore line: [Run Build Command(s): /usr/bin/ninja -v cmTC_e01fe]
+        ignore line: [[1/2] /usr/bin/g++   -v -o CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/g++]
         ignore line: [Target: x86_64-pc-linux-gnu]
-        ignore line: [Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c c++ objc obj-c++ fortran m2 --program-suffix=-15 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 15.2.0' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --disable-multilib --enable-default-pie]
+        ignore line: [Configured with: /build/gcc/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror]
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
-        ignore line: [gcc version 15.2.0 (Homebrew GCC 15.2.0) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_282aa.dir/']
-        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -iprefix /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/ -D_GNU_SOURCE /usr/local/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp -isysroot /home/linuxbrew/.linuxbrew/nonexistent -idirafter /home/linuxbrew/.linuxbrew/include -idirafter /usr/include/x86_64-linux-gnu -idirafter /usr/include -quiet -dumpdir CMakeFiles/cmTC_282aa.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccAHuq0p.s]
-        ignore line: [GNU C++17 (Homebrew GCC 15.2.0) version 15.2.0 (x86_64-pc-linux-gnu)]
-        ignore line: [	compiled by GNU C version 15.2.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
+        ignore line: [gcc version 15.2.1 20260103 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e01fe.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_e01fe.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccNVnftT.s]
+        ignore line: [GNU C++17 (GCC) version 15.2.1 20260103 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 15.2.1 20260103  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../x86_64-pc-linux-gnu/include"]
-        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15"]
-        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/x86_64-pc-linux-gnu"]
-        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/backward"]
-        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include"]
-        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include/x86_64-linux-gnu"]
-        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/local/include"]
-        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed/x86_64-linux-gnu"]
-        ignore line: [ignoring duplicate directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed"]
-        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../x86_64-pc-linux-gnu/include"]
-        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include/x86_64-linux-gnu"]
-        ignore line: [ignoring nonexistent directory "/home/linuxbrew/.linuxbrew/nonexistent/usr/include"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
-        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15]
-        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/x86_64-pc-linux-gnu]
-        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../../../../include/c++/15/backward]
-        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include]
-        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed/x86_64-linux-gnu]
-        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/include-fixed]
-        ignore line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/../../../../include]
-        ignore line: [ /home/linuxbrew/.linuxbrew/include]
-        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed]
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
-        ignore line: [Compiler executable checksum: 5a2ca6a3870b06bd739336104db599ea]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_282aa.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccAHuq0p.s]
-        ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
-        ignore line: [COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/]
-        ignore line: [LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../:/lib/x86_64-linux-gnu/:/lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [[2/2] : && /home/linuxbrew/.linuxbrew/bin/g++-15  -v -Wl -v CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_282aa   && :]
-        ignore line: [Reading specs from /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/specs]
-        ignore line: [COLLECT_GCC=/home/linuxbrew/.linuxbrew/bin/g++-15]
-        ignore line: [COLLECT_LTO_WRAPPER=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/lto-wrapper]
+        ignore line: [Compiler executable checksum: 26247f000d0c5f9b837c76e00a033f94]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e01fe.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccNVnftT.s]
+        ignore line: [GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [[2/2] : && /usr/bin/g++  -v -Wl -v CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_e01fe   && :]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/g++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper]
         ignore line: [Target: x86_64-pc-linux-gnu]
-        ignore line: [Configured with: ../configure --prefix=/home/linuxbrew/.linuxbrew/opt/gcc --libdir=/home/linuxbrew/.linuxbrew/opt/gcc/lib/gcc/current --disable-nls --enable-checking=release --with-gcc-major-version-only --enable-languages=c c++ objc obj-c++ fortran m2 --program-suffix=-15 --with-gmp=/home/linuxbrew/.linuxbrew/opt/gmp --with-mpfr=/home/linuxbrew/.linuxbrew/opt/mpfr --with-mpc=/home/linuxbrew/.linuxbrew/opt/libmpc --with-isl=/home/linuxbrew/.linuxbrew/opt/isl --with-zstd=/home/linuxbrew/.linuxbrew/opt/zstd --with-pkgversion='Homebrew GCC 15.2.0' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --with-system-zlib --disable-multilib --enable-default-pie]
+        ignore line: [Configured with: /build/gcc/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror]
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
-        ignore line: [gcc version 15.2.0 (Homebrew GCC 15.2.0) ]
-        ignore line: [COMPILER_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/]
-        ignore line: [LIBRARY_PATH=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/:/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../../:/lib/x86_64-linux-gnu/:/lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_282aa' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_282aa.']
-        link line: [ /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/collect2 -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOUa7Db.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_282aa /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../.. -L/lib/x86_64-linux-gnu -L/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -rpath /home/linuxbrew/.linuxbrew/lib -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o]
-          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/collect2] ==> ignore
+        ignore line: [gcc version 15.2.1 20260103 (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e01fe' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_e01fe.']
+        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccORX7kH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_e01fe /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2] ==> ignore
           arg [-plugin] ==> ignore
-          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/liblto_plugin.so] ==> ignore
-          arg [-plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccOUa7Db.res] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccORX7kH.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
           arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
           arg [-m] ==> ignore
           arg [elf_x86_64] ==> ignore
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
-          arg [--dynamic-linker] ==> ignore
-          arg [/home/linuxbrew/.linuxbrew/lib/ld.so] ==> ignore
-          arg [-rpath] ==> ignore
-          arg [/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> ignore
           arg [-pie] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_282aa] ==> ignore
-          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o]
-          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o]
-          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o]
-          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15]
-          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc]
-          arg [-L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../..] ==> dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../..]
-          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [cmTC_e01fe] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..]
           arg [-L/lib] ==> dir [/lib]
-          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib] ==> dir [/usr/lib]
-          arg [-L/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> dir [/home/linuxbrew/.linuxbrew/lib/gcc/current]
-          arg [-L/home/linuxbrew/.linuxbrew/lib] ==> dir [/home/linuxbrew/.linuxbrew/lib]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
-          arg [-rpath] ==> ignore
-          arg [/home/linuxbrew/.linuxbrew/lib] ==> ignore
           arg [-lgcc_s] ==> lib [gcc_s]
           arg [-lgcc] ==> lib [gcc]
           arg [-lc] ==> lib [c]
           arg [-lgcc_s] ==> lib [gcc_s]
           arg [-lgcc] ==> lib [gcc]
-          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o]
-          arg [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o] ==> obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o]
-        ignore line: [collect2 version 15.2.0]
-        ignore line: [/usr/bin/ld -plugin /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/liblto_plugin.so -plugin-opt=/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../libexec/gcc/x86_64-pc-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccOUa7Db.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 --dynamic-linker /home/linuxbrew/.linuxbrew/lib/ld.so -rpath /home/linuxbrew/.linuxbrew/lib/gcc/current -pie -o cmTC_282aa /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15 -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc -L/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../.. -L/lib/x86_64-linux-gnu -L/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/home/linuxbrew/.linuxbrew/lib/gcc/current -L/home/linuxbrew/.linuxbrew/lib -v CMakeFiles/cmTC_282aa.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -rpath /home/linuxbrew/.linuxbrew/lib -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o /home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
+        ignore line: [collect2 version 15.2.1 20260103]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccORX7kH.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_e01fe /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_e01fe.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
         linker tool for 'CXX': /usr/bin/ld
-        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o]
-        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o]
-        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o]
-        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o]
-        collapse obj [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o]
-        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15]
-        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc]
-        collapse library dir [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/bin/../lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/../../..] ==> [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current]
-        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o] ==> [/usr/lib/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..] ==> [/usr/lib]
         collapse library dir [/lib] ==> [/lib]
-        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
         collapse library dir [/usr/lib] ==> [/usr/lib]
-        collapse library dir [/home/linuxbrew/.linuxbrew/lib/gcc/current] ==> [/home/linuxbrew/.linuxbrew/lib/gcc/current]
-        collapse library dir [/home/linuxbrew/.linuxbrew/lib] ==> [/home/linuxbrew/.linuxbrew/lib]
         implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
-        implicit objs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/Scrt1.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crti.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtbeginS.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtendS.o;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15/crtn.o]
-        implicit dirs: [/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc/x86_64-pc-linux-gnu/15;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current/gcc;/home/linuxbrew/.linuxbrew/Cellar/gcc/15.2.0/lib/gcc/current;/lib/x86_64-linux-gnu;/lib;/usr/lib/x86_64-linux-gnu;/usr/lib;/home/linuxbrew/.linuxbrew/lib/gcc/current;/home/linuxbrew/.linuxbrew/lib]
+        implicit objs: [/usr/lib/Scrt1.o;/usr/lib/crti.o;/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o;/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o;/usr/lib/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1;/usr/lib;/lib]
         implicit fwks: []
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/local/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
-      - "/usr/local/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:270 (cmake_determine_linker_id)"
-      - "/usr/local/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "/usr/bin/ld" "-v"
-      GNU ld (GNU Binutils for Ubuntu) 2.38
+      GNU ld (GNU Binutils) 2.45.1
 ...

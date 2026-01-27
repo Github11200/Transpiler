@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/user/code/projects/Compiler/build/cmake_install.cmake"
+		"/home/arch/code/projects/Compiler/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

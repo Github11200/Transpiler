@@ -148,7 +148,7 @@ shared_ptr<IfStatement> AST::evaluateIfStatement(const vector<Token> &body)
 
     // Check to make sure this isn't the last otherwise statement since it has no condition
     vector<shared_ptr<ASTNode>> bodyTokensAST = constructAST(currentBlockTokens).get()->nodes;
-    IfStatementBlock newBlock(nul, constructAST(currentBlockTokens).get()->nodes);
+    IfStatementBlock newBlock(nullopt, constructAST(currentBlockTokens).get()->nodes);
 
     ifStatementBlocks.push_back(newBlock);
   }
